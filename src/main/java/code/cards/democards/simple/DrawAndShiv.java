@@ -1,13 +1,14 @@
 package code.cards.democards.simple;
 
+import code.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import code.cards.AbstractEasyCard;
 
 import static code.ModFile.makeID;
-import static code.util.Wiz.*;
+import static code.util.Wiz.atb;
+import static code.util.Wiz.makeInHand;
 
 public class DrawAndShiv extends AbstractEasyCard {
     public final static String ID = makeID(DrawAndShiv.class.getSimpleName());

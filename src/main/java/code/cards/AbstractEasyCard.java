@@ -1,6 +1,8 @@
 package code.cards;
 
 import basemod.abstracts.CustomCard;
+import code.CharacterFile;
+import code.util.CardArtRoller;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
@@ -15,8 +17,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import code.CharacterFile;
-import code.util.CardArtRoller;
 
 import static code.ModFile.makeImagePath;
 import static code.ModFile.modID;

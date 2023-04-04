@@ -1,10 +1,10 @@
 package code.cards.democards.simple;
 
+import code.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import code.cards.AbstractEasyCard;
 
 import static code.ModFile.makeID;
 

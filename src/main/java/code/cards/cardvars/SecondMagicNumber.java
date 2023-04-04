@@ -1,8 +1,8 @@
 package code.cards.cardvars;
 
 import basemod.abstracts.DynamicVariable;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import code.cards.AbstractEasyCard;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import static code.ModFile.makeID;
 

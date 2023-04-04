@@ -1,5 +1,6 @@
 package code.util;
 
+import code.actions.TimedVFXAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -17,7 +18,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import code.actions.TimedVFXAction;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;

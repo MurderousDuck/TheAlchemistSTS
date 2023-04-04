@@ -1,9 +1,9 @@
 package code.relics;
 
 import basemod.abstracts.CustomRelic;
+import code.util.TexLoader;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import code.util.TexLoader;
 
 import static code.ModFile.makeRelicPath;
 import static code.ModFile.modID;

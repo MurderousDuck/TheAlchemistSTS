@@ -1,14 +1,15 @@
 package code.cards.democards.complex;
 
+import code.actions.EasyXCostAction;
+import code.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import code.actions.EasyXCostAction;
-import code.cards.AbstractEasyCard;
 
-import static code.util.Wiz.*;
 import static code.ModFile.makeID;
+import static code.util.Wiz.applyToSelfTop;
+import static code.util.Wiz.atb;
 
 public class EasyXCostDemo extends AbstractEasyCard {
     public final static String ID = makeID(EasyXCostDemo.class.getSimpleName());

@@ -1,13 +1,13 @@
 package code.cards.democards.complex;
 
+import code.cards.AbstractEasyCard;
+import code.powers.LambdaPower;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import code.cards.AbstractEasyCard;
-import code.powers.LambdaPower;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
