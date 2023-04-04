@@ -32,7 +32,7 @@ public class ModFile implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber {
 
-    public static final String modID = "stsalchemy"; //TODO: Change this.
+    public static final String modID = "alchemy";
 
     public static String makeID(String idText) {
         return modID + ":" + idText;
