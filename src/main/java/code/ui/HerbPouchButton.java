@@ -1,7 +1,7 @@
 package code.ui;
 
 import basemod.ClickableUIElement;
-import code.CharacterFile;
+import code.TheAlchemist;
 import code.ModFile;
 import code.util.TexLoader;
 import code.util.TextureHelper;
@@ -89,7 +89,7 @@ public class HerbPouchButton extends ClickableUIElement {
     }
 
     public void render(SpriteBatch sb) {
-        if (ModFile.herbPouch != null && (AbstractDungeon.player.chosenClass == CharacterFile.Enums.THE_ALCHEMIST || ModFile.herbPouch.size() > 0) &&
+        if (ModFile.herbPouch != null && (AbstractDungeon.player.chosenClass == TheAlchemist.Enums.THE_ALCHEMIST || ModFile.herbPouch.size() > 0) &&
                 !AbstractDungeon.overlayMenu.combatDeckPanel.isHidden) {
             float x = this.hitbox.x + this.hitbox.width / 2.0F;
             float y = this.hitbox.y + this.hitbox.height / 2.0F;

@@ -4,7 +4,7 @@ import code.alchemy.ConcoctionActions;
 import code.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
-import static code.CharacterFile.Enums.ALCHEMIST_COLOR;
+import static code.TheAlchemist.Enums.ALCHEMIST_COLOR;
 
 
 public abstract class HerbCard extends AbstractEasyCard {

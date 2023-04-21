@@ -88,7 +88,7 @@ public class ModFile implements
     public ModFile() {
         BaseMod.subscribe(this);
 
-        BaseMod.addColor(CharacterFile.Enums.ALCHEMIST_COLOR, characterColor, characterColor, characterColor,
+        BaseMod.addColor(TheAlchemist.Enums.ALCHEMIST_COLOR, characterColor, characterColor, characterColor,
                 characterColor, characterColor, characterColor, characterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
@@ -123,8 +123,8 @@ public class ModFile implements
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new CharacterFile(CharacterFile.characterStrings.NAMES[1], CharacterFile.Enums.THE_ALCHEMIST),
-                CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, CharacterFile.Enums.THE_ALCHEMIST);
+        BaseMod.addCharacter(new TheAlchemist(TheAlchemist.characterStrings.NAMES[1], TheAlchemist.Enums.THE_ALCHEMIST),
+                CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheAlchemist.Enums.THE_ALCHEMIST);
     }
 
     @Override
@@ -179,8 +179,10 @@ public class ModFile implements
 
     public static void renderCombatUiElements(SpriteBatch sb)
     {
-        if(Wiz.isInCombat())
-            renderHerbPouch(sb, AbstractDungeon.overlayMenu.combatDeckPanel.current_x);
+        if(AbstractDungeon.player instanceof TheAlchemist) {
+            if(Wiz.isInCombat())
+                renderHerbPouch(sb, AbstractDungeon.overlayMenu.combatDeckPanel.current_x);
+        }
     }
 
     public static void renderHerbPouch(SpriteBatch spriteBatch, float x) {
@@ -192,33 +194,41 @@ public class ModFile implements
 
     @Override
     public void receivePostDungeonUpdate() {
-        if (herbPouchButton != null)
-            herbPouchButton.update();
+        if(AbstractDungeon.player instanceof TheAlchemist) {
+            if (herbPouchButton != null)
+                herbPouchButton.update();
+        }
     }
 
     @Override
     public void receiveStartGame() {
-        herbPouchButton = new HerbPouchButton();
-        herbPouch = new CardGroup(CardGroup.CardGroupType.DRAW_PILE);
-        herbPouch.addToBottom(new Blazepepper());
-        herbPouch.addToBottom(new Shieldlym());
-        herbPouch.addToBottom(new Wavycap());
-        herbPouch.addToBottom(new Cherryburst());
+        if(AbstractDungeon.player instanceof TheAlchemist) {
+            herbPouchButton = new HerbPouchButton();
+            herbPouch = new CardGroup(CardGroup.CardGroupType.DRAW_PILE);
+            herbPouch.addToBottom(new Blazepepper());
+            herbPouch.addToBottom(new Shieldlym());
+            herbPouch.addToBottom(new Wavycap());
+            herbPouch.addToBottom(new Cherryburst());
 
-        concoctionBelt.show();
-        concoctionBelt.update();
-        concoctionBelt.removeAllPotions();
+            concoctionBelt.show();
+            concoctionBelt.update();
+            concoctionBelt.removeAllPotions();
+        }
     }
 
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
-        herbPouch.clear();
-        concoctionBelt.hide();
-        concoctionBelt.removeAllPotions();
+        if(AbstractDungeon.player instanceof TheAlchemist) {
+            herbPouch.clear();
+            concoctionBelt.hide();
+            concoctionBelt.removeAllPotions();
+        }
     }
 
     @Override
     public void receivePostInitialize() {
-        concoctionBelt = new ConcoctionBelt();
+        if(AbstractDungeon.player instanceof TheAlchemist) {
+            concoctionBelt = new ConcoctionBelt();
+        }
     }
 }

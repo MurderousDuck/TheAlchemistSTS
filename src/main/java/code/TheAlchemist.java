@@ -24,10 +24,10 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import java.util.ArrayList;
 
-import static code.CharacterFile.Enums.ALCHEMIST_COLOR;
+import static code.TheAlchemist.Enums.ALCHEMIST_COLOR;
 import static code.ModFile.*;
 
-public class CharacterFile extends CustomPlayer {
+public class TheAlchemist extends CustomPlayer {
 
     static final String ID = makeID("TheAlchemist");
     static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
@@ -35,7 +35,7 @@ public class CharacterFile extends CustomPlayer {
     static final String[] TEXT = characterStrings.TEXT;
 
 
-    public CharacterFile(String name, PlayerClass setClass) {
+    public TheAlchemist(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), new SpriterAnimation(
                 modID + "Resources/images/char/mainChar/static.scml"));
         initializeClass(null,
@@ -137,7 +137,7 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public AbstractPlayer newInstance() {
-        return new CharacterFile(name, chosenClass);
+        return new TheAlchemist(name, chosenClass);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package code.cards;
 
 import basemod.abstracts.CustomCard;
-import code.CharacterFile;
+import code.TheAlchemist;
 import code.util.CardArtRoller;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -40,7 +40,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     private boolean needsArtRefresh = false;
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, CharacterFile.Enums.ALCHEMIST_COLOR);
+        this(cardID, cost, type, rarity, target, TheAlchemist.Enums.ALCHEMIST_COLOR);
     }
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
