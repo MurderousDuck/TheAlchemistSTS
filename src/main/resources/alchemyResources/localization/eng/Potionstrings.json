@@ -1,0 +1,8 @@
+{
+  "${ModID}:Concoction": {
+    "NAME": "Concoction",
+    "DESCRIPTIONS": [
+      "Concoctions gain the effects of #yHerbs that were used to #yBrew it."
+    ]
+  }
+}

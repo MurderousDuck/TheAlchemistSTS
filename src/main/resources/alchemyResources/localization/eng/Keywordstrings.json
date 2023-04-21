@@ -1,10 +1,38 @@
 [
   {
-    "PROPER_NAME": "TODO",
+    "PROPER_NAME": "Brew",
     "NAMES": [
-      "todo",
-      "todos"
+      "brew",
+      "Brew",
+      "Brewing"
     ],
-    "DESCRIPTION": "TODO: Make your own epic keywords"
+    "DESCRIPTION": "Combines two #yHerbs to make a powerful #yConcoction."
+  },
+  {
+    "PROPER_NAME": "Eat",
+    "NAMES": [
+      "eat",
+      "Eat",
+      "Eating"
+    ],
+    "DESCRIPTION": "Eating an #yHerb grants an immediate lesser effect."
+  },
+  {
+    "PROPER_NAME": "Concoction",
+    "NAMES": [
+      "concoction",
+      "Concoction",
+      "Concoctions"
+    ],
+    "DESCRIPTION": "Consumable created by #yBrewing #yHerbs that last until the end of combat."
+  },
+  {
+    "PROPER_NAME": "Herb",
+    "NAMES": [
+      "herb",
+      "Herb",
+      "Herbs"
+    ],
+    "DESCRIPTION": "Ingredients used for #yBrewing stored in a #yPouch."
   }
 ]

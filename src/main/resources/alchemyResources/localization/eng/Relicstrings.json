@@ -5,5 +5,12 @@
     "DESCRIPTIONS": [
       "Has no effect."
     ]
+  },
+  "${ModID}:PocketLab": {
+    "NAME": "Pocket Lab",
+    "FLAVOR": "With how much you can do with this bad boy it's only fair to call it a lab.",
+    "DESCRIPTIONS": [
+      "#y${modID}:Concoctions use #b3 #y${modID}:Herbs instead."
+    ]
   }
 }

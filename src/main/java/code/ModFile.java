@@ -4,21 +4,29 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import code.alchemy.ConcoctionBelt;
 import code.cards.AbstractEasyCard;
 import code.cards.cardvars.SecondDamage;
 import code.cards.cardvars.SecondMagicNumber;
+import code.herbs.common.Blazepepper;
+import code.herbs.common.Cherryburst;
+import code.herbs.common.Shieldlym;
+import code.herbs.common.Wavycap;
 import code.relics.AbstractEasyRelic;
+import code.ui.HerbPouchButton;
+import code.util.Wiz;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.nio.charset.StandardCharsets;
@@ -30,7 +38,11 @@ public class ModFile implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        EditCharactersSubscriber {
+        EditCharactersSubscriber,
+        StartGameSubscriber,
+        PostDungeonUpdateSubscriber,
+        PostBattleSubscriber,
+        PostInitializeSubscriber {
 
     public static final String modID = "alchemy";
 
@@ -39,6 +51,11 @@ public class ModFile implements
     }
 
     public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
+    public static HerbPouchButton herbPouchButton;
+    public static CardGroup herbPouch;
+    public static ConcoctionBelt concoctionBelt;
+    public static int herbPouchKey = 34;
+    public static int[] potionSackKeys = new int[] { 37, 43, 44, 45 };
 
     public static final String SHOULDER1 = modID + "Resources/images/char/mainChar/shoulder.png";
     public static final String SHOULDER2 = modID + "Resources/images/char/mainChar/shoulder2.png";
@@ -102,6 +119,8 @@ public class ModFile implements
         ModFile thismod = new ModFile();
     }
 
+
+
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new CharacterFile(CharacterFile.characterStrings.NAMES[1], CharacterFile.Enums.THE_ALCHEMIST),
@@ -138,12 +157,11 @@ public class ModFile implements
     @Override
     public void receiveEditStrings() {
         BaseMod.loadCustomStringsFile(CardStrings.class, modID + "Resources/localization/" + getLangString() + "/Cardstrings.json");
-
         BaseMod.loadCustomStringsFile(RelicStrings.class, modID + "Resources/localization/" + getLangString() + "/Relicstrings.json");
-
         BaseMod.loadCustomStringsFile(CharacterStrings.class, modID + "Resources/localization/" + getLangString() + "/Charstrings.json");
-
         BaseMod.loadCustomStringsFile(PowerStrings.class, modID + "Resources/localization/" + getLangString() + "/Powerstrings.json");
+        BaseMod.loadCustomStringsFile(UIStrings.class, modID + "Resources/localization/" + getLangString() + "/UIstrings.json");
+        BaseMod.loadCustomStringsFile(PotionStrings.class, modID + "Resources/localization/" + getLangString() + "/Potionstrings.json");
     }
 
     @Override
@@ -157,5 +175,50 @@ public class ModFile implements
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
+    }
+
+    public static void renderCombatUiElements(SpriteBatch sb)
+    {
+        if(Wiz.isInCombat())
+            renderHerbPouch(sb, AbstractDungeon.overlayMenu.combatDeckPanel.current_x);
+    }
+
+    public static void renderHerbPouch(SpriteBatch spriteBatch, float x) {
+        if (herbPouchButton != null) {
+            herbPouchButton.setX(x);
+            herbPouchButton.render(spriteBatch);
+        }
+    }
+
+    @Override
+    public void receivePostDungeonUpdate() {
+        if (herbPouchButton != null)
+            herbPouchButton.update();
+    }
+
+    @Override
+    public void receiveStartGame() {
+        herbPouchButton = new HerbPouchButton();
+        herbPouch = new CardGroup(CardGroup.CardGroupType.DRAW_PILE);
+        herbPouch.addToBottom(new Blazepepper());
+        herbPouch.addToBottom(new Shieldlym());
+        herbPouch.addToBottom(new Wavycap());
+        herbPouch.addToBottom(new Cherryburst());
+
+        concoctionBelt.show();
+        concoctionBelt.update();
+        concoctionBelt.removeAllPotions();
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        herbPouch.clear();
+        concoctionBelt.hide();
+        concoctionBelt.removeAllPotions();
+    }
+
+    @Override
+    public void receivePostInitialize() {
+        concoctionBelt = new ConcoctionBelt();
     }
 }

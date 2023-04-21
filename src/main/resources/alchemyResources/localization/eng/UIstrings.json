@@ -1,0 +1,31 @@
+{
+  "${ModID}:HerbPouch": {
+    "TEXT": [
+      "Herb Pouch",
+      "Herbs that are Foraged go into the Herb Pouch. NL NL Herbs are not drawn or shuffled normally, but can be acquired from Foraging and used for Brewing.",
+      "The Herb Pouch is empty!"
+    ]
+  },
+  "${ModID}:HerbPouchViewScreen": {
+    "TEXT": [
+      "These are your Herbs, shown in order from oldest to newest."
+    ]
+  },
+  "${ModID}:HerbCardType": {
+    "TEXT": [
+      "Herb"
+    ]
+  },
+  "${ModID}:ConcoctionBelt": {
+    "TEXT": [
+      "Your Belt can hold 3 Concoctions, which are only available during this combat.",
+      "The Belt"
+    ]
+  },
+  "${ModID}:BrewAction": {
+    "TEXT": [
+      "Choose ",
+      " Herbs to Brew."
+    ]
+  }
+}

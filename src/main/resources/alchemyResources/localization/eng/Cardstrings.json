@@ -1,4 +1,8 @@
 {
+  "${ModID}:ConcoctionActions": {
+    "NAME": "Concoction Actions",
+    "DESCRIPTION": ""
+  },
   "${ModID}:Strike": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
@@ -7,59 +11,44 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
-  "${ModID}:ExampleTwoAmountPowerCard": {
-    "NAME": "Two Amount Power",
-    "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:m2! Dexterity."
+  "${ModID}:CampfireBrewing": {
+    "NAME": "Campfire Brewing",
+    "DESCRIPTION": "${ModID}:Brew.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Brew. Draw a card."
   },
-  "${ModID}:InlinePowerDemo": {
-    "NAME": "Inline Power",
-    "DESCRIPTION": "Strikes deal !M! more damage. NL At the end of your turn, gain !M! Block.",
+  "${ModID}:Blazepepper": {
+    "NAME": "Blazepepper",
+    "DESCRIPTION": "${ModID}:Brew: Deal 10 damage. NL ${ModID}:Eat: Deal 5 damage.",
     "EXTENDED_DESCRIPTION": [
-      "Strike+, Block+",
-      "#yStrikes deal #b",
-      " additional damage. At the end of your turn, gain #b",
-      " #yBlock."
+      "Deal 10 damage."
     ]
   },
-  "${ModID}:SelectCardsPlusCardMods": {
-    "NAME": "Cool Card Stuff",
-    "DESCRIPTION": "Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Ethereal and Exhaust.",
+  "${ModID}:Shieldlym": {
+    "NAME": "Shieldlym",
+    "DESCRIPTION": "${ModID}:Brew: Gain 10 Block. NL ${ModID}:Eat: Gain 5 Block.",
     "EXTENDED_DESCRIPTION": [
-      "Choose a card to add into your hand with Ethereal and Exhaust."
+      "Gain 10 Block."
     ]
   },
-  "${ModID}:EasyXCostDemo": {
-    "NAME": "Easy X Cost",
-    "DESCRIPTION": "Deal !D! damage X times. NL Gain X Strength. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage X+1 times. NL Gain X+1 Strength. NL Exhaust."
-  },
-  "${ModID}:EasyModalChoiceDemo": {
-    "NAME": "Easy Modal Choice",
-    "DESCRIPTION": "Choose one: Draw !M! cards or gain !${ModID}:m2! Strength.",
+  "${ModID}:Wavycap": {
+    "NAME": "Wavycap",
+    "DESCRIPTION": "${ModID}:Brew: Deal 5 damage. Gain 5 Block. NL ${ModID}:Eat: Deal 3 damage to a random enemy. Gain 3 Block.",
     "EXTENDED_DESCRIPTION": [
-      "Draw",
-      "Draw ",
-      " cards.",
-      "Strength",
-      "Gain ",
-      " Strength."
+      "Deal 5 damage. Gain 5 Block."
     ]
   },
-  "${ModID}:DrawAndShiv": {
-    "NAME": "Draw and Shiv",
-    "DESCRIPTION": "Draw 1 card. NL Add 1 *Shiv into your hand."
+  "${ModID}:Cherryburst": {
+    "NAME": "Cherryburst",
+    "DESCRIPTION": "${ModID}:Brew: Deal 7 damage to ALL enemies. NL ${ModID}:Eat: Deal 4 damage to ALL enemies.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal 7 damage to ALL enemies."
+    ]
   },
-  "${ModID}:TwoTypesOfDamage": {
-    "NAME": "Two Damage Values",
-    "DESCRIPTION": "Deal !D! damage. NL If you're Vulnerable, deal !${ModID}:sd! damage instead."
-  },
-  "${ModID}:StartupBlockCard": {
-    "NAME": "Startup And AOE",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Startup: Gain !M! Block."
-  },
-  "${ModID}:MultiCardPreviewAndDrawCallback": {
-    "NAME": "Previews and Callbacks",
-    "DESCRIPTION": "Shuffle *Smite and *Safety into your draw pile. NL Draw 1 card. NL If it's Colorless, deal !D! damage to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Shuffle *Smite and *Safety into your draw pile. NL Draw 1 card. NL If it's Colorless, deal !D! damage to ALL enemies."
+  "${ModID}:Rotleaf": {
+    "NAME": "Rotleaf",
+    "DESCRIPTION": "${ModID}:Brew: Apply 5 Poison. NL ${ModID}:Eat: Apply 3 Poison to a random enemy.",
+    "EXTENDED_DESCRIPTION": [
+      "Apply 5 Poison."
+    ]
   }
 }
