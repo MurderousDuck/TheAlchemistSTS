@@ -2,6 +2,7 @@ package code.herbs.uncommon;
 
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
+import code.herbs.HerbRarity;
 import code.modifiers.ApplyWeakModifier;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -18,7 +19,7 @@ public class Sappervine extends HerbCard {
     public final static String ID = makeID("Sappervine");
 
     public Sappervine() {
-        super(ID, 2, 1);
+        super(ID, 2, 1, HerbRarity.UNCOMMON);
     }
 
     @Override

@@ -9,17 +9,17 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
-public class UpgradeCardsModifier extends StackableModifier {
-    public static String ID = makeID("UpgradeCardsModifier");
+public class UpgradeCardsInHandModifier extends StackableModifier {
+    public static String ID = makeID("UpgradeCardsInHandModifier");
     public static String MOD_DESCRIPTION = " Upgrade all cards in your hand for the rest of combat.";
     public static String MULT_MOD_DESCRIPTION = " Upgrade all cards in your hand {0} times for the rest of combat.";
     public int amount;
 
-    public UpgradeCardsModifier() {
+    public UpgradeCardsInHandModifier() {
         amount = 1;
     }
 
-    public UpgradeCardsModifier(int amt) {
+    public UpgradeCardsInHandModifier(int amt) {
         amount = amt;
     }
 
@@ -40,7 +40,7 @@ public class UpgradeCardsModifier extends StackableModifier {
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new UpgradeCardsModifier(amount);
+        return new UpgradeCardsInHandModifier(amount);
     }
 
     @Override

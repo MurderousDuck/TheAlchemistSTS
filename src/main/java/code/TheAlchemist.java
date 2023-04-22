@@ -24,8 +24,8 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import java.util.ArrayList;
 
-import static code.TheAlchemist.Enums.ALCHEMIST_COLOR;
 import static code.ModFile.*;
+import static code.TheAlchemist.Enums.ALCHEMIST_COLOR;
 
 public class TheAlchemist extends CustomPlayer {
 

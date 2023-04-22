@@ -2,8 +2,8 @@ package code.herbs.common;
 
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
+import code.herbs.HerbRarity;
 import code.modifiers.GainDexterityModifier;
-import code.util.Wiz;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -14,12 +14,13 @@ import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 
 import static code.ModFile.makeID;
 import static code.util.BrewStand.updateStackableModifier;
+import static code.util.Wiz.atb;
 
 public class Agilieaf extends HerbCard {
     public final static String ID = makeID("Agilieaf");
 
     public Agilieaf() {
-        super(ID, 1, 2);
+        super(ID, 1, 2, HerbRarity.COMMON);
     }
 
     @Override
@@ -30,8 +31,8 @@ public class Agilieaf extends HerbCard {
     @Override
     public void eat() {
         AbstractCreature target = AbstractDungeon.player;
-        Wiz.atb(new ApplyPowerAction(target, AbstractDungeon.player, new DexterityPower(target, this.eatPotency), this.eatPotency));
-        Wiz.atb(new ApplyPowerAction(target, AbstractDungeon.player, new LoseDexterityPower(target, this.eatPotency), this.eatPotency));
+        atb(new ApplyPowerAction(target, AbstractDungeon.player, new DexterityPower(target, this.eatPotency), this.eatPotency));
+        atb(new ApplyPowerAction(target, AbstractDungeon.player, new LoseDexterityPower(target, this.eatPotency), this.eatPotency));
     }
 
     @Override

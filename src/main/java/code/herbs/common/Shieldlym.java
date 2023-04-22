@@ -2,8 +2,8 @@ package code.herbs.common;
 
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
+import code.herbs.HerbRarity;
 import code.modifiers.GainBlockModifier;
-import code.util.Wiz;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -12,12 +12,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
 import static code.util.BrewStand.updateStackableModifier;
+import static code.util.Wiz.atb;
 
 public class Shieldlym extends HerbCard {
     public final static String ID = makeID("Shieldlym");
 
     public Shieldlym() {
-        super(ID, 10, 5);
+        super(ID, 10, 5, HerbRarity.COMMON);
     }
 
     @Override
@@ -27,7 +28,7 @@ public class Shieldlym extends HerbCard {
 
     @Override
     public void eat() {
-        Wiz.atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.eatPotency));
+        atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.eatPotency));
     }
 
     @Override

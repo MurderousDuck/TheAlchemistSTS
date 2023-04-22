@@ -2,8 +2,8 @@ package code.herbs.common;
 
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
+import code.herbs.HerbRarity;
 import code.modifiers.DealDamageToAllModifier;
-import code.util.Wiz;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -13,12 +13,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
 import static code.util.BrewStand.updateStackableModifier;
+import static code.util.Wiz.atb;
 
 public class Cherryburst extends HerbCard {
     public final static String ID = makeID("Cherryburst");
 
     public Cherryburst() {
-        super(ID, 7, 4);
+        super(ID, 7, 4, HerbRarity.COMMON);
     }
 
     @Override
@@ -28,7 +29,7 @@ public class Cherryburst extends HerbCard {
 
     @Override
     public void eat() {
-        Wiz.atb(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.eatPotency, true), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
+        atb(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.eatPotency, true), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override

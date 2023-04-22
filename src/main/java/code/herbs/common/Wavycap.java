@@ -2,9 +2,9 @@ package code.herbs.common;
 
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
+import code.herbs.HerbRarity;
 import code.modifiers.DealDamageModifier;
 import code.modifiers.GainBlockModifier;
-import code.util.Wiz;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -16,12 +16,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
 import static code.util.BrewStand.updateStackableModifier;
+import static code.util.Wiz.atb;
 
 public class Wavycap extends HerbCard {
     public final static String ID = makeID("Wavycap");
 
     public Wavycap() {
-        super(ID, 5, 3);
+        super(ID, 5, 3, HerbRarity.COMMON);
     }
 
     public void brew(AbstractCreature target, ConcoctionActions actions) {
@@ -35,8 +36,8 @@ public class Wavycap extends HerbCard {
         AbstractCreature target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
         info.applyEnemyPowersOnly(target);
 
-        Wiz.atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.eatPotency));
-        Wiz.atb(new DamageAction(target, info, AbstractGameAction.AttackEffect.NONE));
+        atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.eatPotency));
+        atb(new DamageAction(target, info, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override

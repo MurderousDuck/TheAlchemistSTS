@@ -1,8 +1,8 @@
 package code.ui;
 
 import basemod.ClickableUIElement;
-import code.TheAlchemist;
 import code.ModFile;
+import code.TheAlchemist;
 import code.util.TexLoader;
 import code.util.TextureHelper;
 import com.badlogic.gdx.Gdx;

@@ -2,8 +2,8 @@ package code.herbs.common;
 
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
+import code.herbs.HerbRarity;
 import code.modifiers.GainStrengthModifier;
-import code.util.Wiz;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -14,12 +14,13 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static code.ModFile.makeID;
 import static code.util.BrewStand.updateStackableModifier;
+import static code.util.Wiz.atb;
 
 public class Buffbloom extends HerbCard {
     public final static String ID = makeID("Buffbloom");
 
     public Buffbloom() {
-        super(ID, 1, 2);
+        super(ID, 1, 2, HerbRarity.COMMON);
     }
 
     @Override
@@ -30,8 +31,8 @@ public class Buffbloom extends HerbCard {
     @Override
     public void eat() {
         AbstractCreature target = AbstractDungeon.player;
-        Wiz.atb(new ApplyPowerAction(target, AbstractDungeon.player, new StrengthPower(target, this.eatPotency), this.eatPotency));
-        Wiz.atb(new ApplyPowerAction(target, AbstractDungeon.player, new LoseStrengthPower(target, this.eatPotency), this.eatPotency));
+        atb(new ApplyPowerAction(target, AbstractDungeon.player, new StrengthPower(target, this.eatPotency), this.eatPotency));
+        atb(new ApplyPowerAction(target, AbstractDungeon.player, new LoseStrengthPower(target, this.eatPotency), this.eatPotency));
     }
 
     @Override
