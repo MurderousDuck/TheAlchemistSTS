@@ -1,6 +1,5 @@
 package code.herbs;
 
-import code.TheAlchemist;
 import code.alchemy.ConcoctionActions;
 import code.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;

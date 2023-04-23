@@ -1,32 +1,36 @@
-package code.herbs.uncommon;
+package code.herbs.elusive;
 
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
 import code.herbs.HerbRarity;
-import code.modifiers.UpgradeCardsInHandModifier;
-import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
+import code.modifiers.GainIntangibleModifier;
+import code.powers.FadingPower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
 import static code.util.BrewStand.updateStackableModifier;
 import static code.util.Wiz.atb;
 
-public class ForgesEmbrace extends HerbCard {
-    public final static String ID = makeID("ForgesEmbrace");
+public class Spectralite extends HerbCard {
+    public final static String ID = makeID("Spectralite");
 
-    public ForgesEmbrace() {
-        super(ID, 1, 1, HerbRarity.UNCOMMON);
+    public Spectralite() {
+        super(ID, 1, 1, HerbRarity.ELUSIVE);
     }
 
+    @Override
     public void brew(AbstractCreature target, ConcoctionActions actions) {
-        updateStackableModifier(actions, new UpgradeCardsInHandModifier(brewPotency));
+        updateStackableModifier(actions, new GainIntangibleModifier(brewPotency));
     }
 
     @Override
     public void eat() {
-        atb(new UpgradeRandomCardAction());
+        AbstractCreature target = AbstractDungeon.player;
+        atb(new ApplyPowerAction(target, AbstractDungeon.player, new FadingPower(target, this.eatPotency), this.eatPotency));
     }
 
     @Override

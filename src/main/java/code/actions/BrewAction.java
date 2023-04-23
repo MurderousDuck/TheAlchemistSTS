@@ -7,7 +7,6 @@ import code.util.BrewStand;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -18,13 +17,11 @@ import static code.ModFile.makeID;
 
 public class BrewAction extends AbstractGameAction {
     public static final String[] TEXT = (CardCrawlGame.languagePack.getUIString(makeID("BrewAction"))).TEXT;
-    private AbstractPlayer player;
-    private int numberOfHerbs;
+    private final int numberOfHerbs;
 
     public BrewAction() {
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
-        this.player = AbstractDungeon.player;
         this.numberOfHerbs = BrewStand.getBrewAmount();
     }
 

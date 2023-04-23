@@ -6,27 +6,38 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class AbstractEasyPower extends AbstractPower {
+    private static PowerStrings getPowerStrings(String ID)
+    {
+        return CardCrawlGame.languagePack.getPowerStrings(ID);
+    }
+
     public int amount2 = -1;
     public boolean isTwoAmount = false;
     public static Color redColor2 = Color.RED.cpy();
     public static Color greenColor2 = Color.GREEN.cpy();
     public boolean canGoNegative2 = false;
+    protected String[] DESCRIPTIONS;
 
-    public AbstractEasyPower(String ID, String NAME, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {
+    public AbstractEasyPower(String ID, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {
         this.ID = ID;
         this.isTurnBased = isTurnBased;
-
-        this.name = NAME;
-
         this.owner = owner;
         this.amount = amount;
         this.type = powerType;
+
+        PowerStrings strings = getPowerStrings(this.ID);
+        this.name = strings.NAME;
+        this.DESCRIPTIONS = strings.DESCRIPTIONS;
 
         Texture normalTexture = TexLoader.getTexture(ModFile.modID + "Resources/images/powers/" + ID.replaceAll(ModFile.modID + ":", "") + "32.png");
         Texture hiDefImage = TexLoader.getTexture(ModFile.modID + "Resources/images/powers/" + ID.replaceAll(ModFile.modID + ":", "") + "84.png");
@@ -58,5 +69,13 @@ public abstract class AbstractEasyPower extends AbstractPower {
             c = redColor2;
             FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(amount2), x, y + 15.0F * Settings.scale, fontScale, c);
         }
+    }
+
+    protected void removeThisPower() {
+        addToBot(new RemoveSpecificPowerAction(owner, owner, ID));
+    }
+
+    protected void reduceThisPower(int amount) {
+        addToBot(new ReducePowerAction(this.owner, this.owner, ID, amount));
     }
 }

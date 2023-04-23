@@ -1,32 +1,32 @@
-package code.herbs.uncommon;
+package code.herbs.rare;
 
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
 import code.herbs.HerbRarity;
-import code.modifiers.UpgradeCardsInHandModifier;
-import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
+import code.modifiers.PlayTopCardsModifier;
+import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
 import static code.util.BrewStand.updateStackableModifier;
-import static code.util.Wiz.atb;
 
-public class ForgesEmbrace extends HerbCard {
-    public final static String ID = makeID("ForgesEmbrace");
+public class Chaosbloom extends HerbCard {
+    public final static String ID = makeID("Chaosbloom");
 
-    public ForgesEmbrace() {
-        super(ID, 1, 1, HerbRarity.UNCOMMON);
+    public Chaosbloom() {
+        super(ID, 2, 1, HerbRarity.RARE);
     }
 
     public void brew(AbstractCreature target, ConcoctionActions actions) {
-        updateStackableModifier(actions, new UpgradeCardsInHandModifier(brewPotency));
+        updateStackableModifier(actions, new PlayTopCardsModifier(brewPotency));
     }
 
     @Override
     public void eat() {
-        atb(new UpgradeRandomCardAction());
+        this.addToBot(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
     }
 
     @Override

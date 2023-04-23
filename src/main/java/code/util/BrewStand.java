@@ -66,28 +66,46 @@ public class BrewStand {
 
     public static boolean doSpecialStackingModifier(ConcoctionActions actions, StackableModifier mod) {
         if(mod.ID.equals(DealDamageToAllModifier.ID)) {
-            if(CardModifierManager.hasModifier(actions, DealToAllThenTakeModifier.ID)) {
-                StackableModifier modifier = (StackableModifier) CardModifierManager.getModifiers(actions, DealToAllThenTakeModifier.ID).get(0);
-                modifier.amount += mod.amount;
-                actions.initializeDescription();
-            } else {
-                CardModifierManager.addModifier(actions, mod);
-            }
+            specialMergeModifier(actions, mod, DealToAllThenTakeModifier.ID);
             return true;
         }
-
         if(mod.ID.equals(DrawCardModifier.ID)) {
-            if(CardModifierManager.hasModifier(actions, DiscardHandThenDrawModifier.ID)) {
-                StackableModifier modifier = (StackableModifier) CardModifierManager.getModifiers(actions, DiscardHandThenDrawModifier.ID).get(0);
-                modifier.amount += mod.amount;
-                actions.initializeDescription();
-            } else {
-                CardModifierManager.addModifier(actions, mod);
-            }
+            specialMergeModifier(actions, mod, DiscardHandThenDrawModifier.ID);
             return true;
         }
-
+        if(mod.ID.equals(DealToAllThenTakeModifier.ID)) {
+            specialRetroactiveMergeModifier(actions, mod, DealDamageToAllModifier.ID);
+            return true;
+        }
+        if(mod.ID.equals(DiscardHandThenDrawModifier.ID)) {
+            specialRetroactiveMergeModifier(actions, mod, DrawCardModifier.ID);
+            return true;
+        }
         return false;
+    }
+
+    private static void specialMergeModifier(ConcoctionActions actions, StackableModifier mod, String mergeModId) {
+        if(CardModifierManager.hasModifier(actions, mergeModId)) {
+            StackableModifier mergeMod = (StackableModifier) CardModifierManager.getModifiers(actions, mergeModId).get(0);
+            mergeMod.amount += mod.amount;
+            actions.initializeDescription();
+        } else {
+            CardModifierManager.addModifier(actions, mod);
+        }
+    }
+
+    private static void specialRetroactiveMergeModifier(ConcoctionActions actions, StackableModifier mod, String mergeModId) {
+        if(CardModifierManager.hasModifier(actions, mergeModId)) {
+            StackableModifier mergeMod = (StackableModifier) CardModifierManager.getModifiers(actions, mergeModId).get(0);
+            mod.amount += mergeMod.amount;
+
+            CardModifierManager.removeSpecificModifier(actions, mergeMod, true);
+            CardModifierManager.addModifier(actions, mod);
+
+            actions.initializeDescription();
+        } else {
+            CardModifierManager.addModifier(actions, mod);
+        }
     }
 
     public static void explosivePotionEffect() {

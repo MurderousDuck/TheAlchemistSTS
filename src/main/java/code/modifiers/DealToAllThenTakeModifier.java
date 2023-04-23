@@ -41,7 +41,7 @@ public class DealToAllThenTakeModifier extends StackableModifier{
         atb(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
 
         BrewStand.playerExplosion();
-        atb(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.selfDamage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+        atb(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.selfDamage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override
