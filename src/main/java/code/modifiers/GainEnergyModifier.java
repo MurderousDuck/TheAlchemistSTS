@@ -14,10 +14,6 @@ public class GainEnergyModifier extends StackableModifier {
     public static String ID = makeID("GainEnergyModifier");
     public static String MOD_DESCRIPTION = " Gain #b{0} #yEnergy.";
 
-    public GainEnergyModifier() {
-        super(ID);
-    }
-
     public GainEnergyModifier(int amount) {
         super(ID, amount);
     }

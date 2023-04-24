@@ -18,10 +18,6 @@ public class DoublePlayModifier extends StackableModifier {
     public static String MOD_DESCRIPTION = " Your next card this turn is played twice.";
     public static String MULT_MOD_DESCRIPTION = " Your next #b{0} cards this turn are played twice.";
 
-    public DoublePlayModifier() {
-        super(ID);
-    }
-
     public DoublePlayModifier(int amount) {
         super(ID, amount);
     }

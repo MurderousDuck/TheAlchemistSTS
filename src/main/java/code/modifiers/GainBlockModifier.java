@@ -15,10 +15,6 @@ public class GainBlockModifier extends StackableModifier {
     public static String ID = makeID("GainBlockModifier");
     public static String MOD_DESCRIPTION = " Gain #b{0} #yBlock.";
 
-    public GainBlockModifier() {
-        super(ID);
-    }
-
     public GainBlockModifier(int amount) {
         super(ID, amount);
     }

@@ -17,10 +17,6 @@ public class RetainHandModifier extends StackableModifier {
     public static String MOD_DESCRIPTION = " #yRetain your hand this turn.";
     public static String MULT_MOD_DESCRIPTION = " #yRetain your hand for the next #b{0} turns.";
 
-    public RetainHandModifier() {
-        super(ID);
-    }
-
     public RetainHandModifier(int amount) {
         super(ID, amount);
     }

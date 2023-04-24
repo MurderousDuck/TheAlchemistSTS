@@ -16,10 +16,6 @@ public class GainDexterityModifier extends StackableModifier{
     public static String ID = makeID("GainDexterityModifier");
     public static String MOD_DESCRIPTION = " Gain #b{0} #yDexterity.";
 
-    public GainDexterityModifier() {
-        super(ID);
-    }
-
     public GainDexterityModifier(int amount) {
         super(ID, amount);
     }

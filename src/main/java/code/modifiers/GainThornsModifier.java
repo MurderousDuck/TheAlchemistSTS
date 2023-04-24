@@ -16,10 +16,6 @@ public class GainThornsModifier extends StackableModifier{
     public static String ID = makeID("GainThornsModifier");
     public static String MOD_DESCRIPTION = " Gain #b{0} #yThorns.";
 
-    public GainThornsModifier() {
-        super(ID);
-    }
-
     public GainThornsModifier(int amount) {
         super(ID, amount);
     }

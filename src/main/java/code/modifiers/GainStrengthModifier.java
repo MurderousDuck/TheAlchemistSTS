@@ -16,10 +16,6 @@ public class GainStrengthModifier extends StackableModifier{
     public static String ID = makeID("GainStrengthModifier");
     public static String MOD_DESCRIPTION = " Gain #b{0} #yStrength.";
 
-    public GainStrengthModifier() {
-        super(ID);
-    }
-
     public GainStrengthModifier(int amount) {
         super(ID, amount);
     }

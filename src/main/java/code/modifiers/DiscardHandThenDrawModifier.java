@@ -14,10 +14,6 @@ public class DiscardHandThenDrawModifier extends StackableModifier {
     public static String ID = makeID("DiscardHandThenDrawModifier");
     public static String MOD_DESCRIPTION = " Discard your hand then draw #b{0} cards.";
 
-    public DiscardHandThenDrawModifier() {
-        super(ID);
-    }
-
     public DiscardHandThenDrawModifier(int amount) {
         super(ID, amount);
     }

@@ -38,10 +38,14 @@ public class BrewStand {
     }
 
     public static void updateStackableModifier(ConcoctionActions actions, StackableModifier mod) {
-        if(!doSpecialStackingModifier(actions, mod)) {
+        if(!mergeChecker(actions, mod)) {
             if(CardModifierManager.hasModifier(actions, mod.modId)) {
                 StackableModifier modifier = (StackableModifier) CardModifierManager.getModifiers(actions, mod.modId).get(0);
                 modifier.amount += mod.amount;
+
+                if(mod instanceof DealToAllThenTakeModifier)
+                    ((DealToAllThenTakeModifier) modifier).selfDamage += ((DealToAllThenTakeModifier) mod).selfDamage;
+
                 actions.initializeDescription();
             } else {
                 CardModifierManager.addModifier(actions, mod);
@@ -49,37 +53,33 @@ public class BrewStand {
         }
     }
 
-    public static boolean doSpecialStackingModifier(ConcoctionActions actions, StackableModifier mod) {
+    public static boolean mergeChecker(ConcoctionActions actions, StackableModifier mod) {
         if(mod.modId.equals(DealDamageToAllModifier.ID)) {
-            specialMergeModifier(actions, mod, DealToAllThenTakeModifier.ID);
-            return true;
+            return specialMergeModifier(actions, mod, DealToAllThenTakeModifier.ID);
         }
         if(mod.modId.equals(DrawCardModifier.ID)) {
-            specialMergeModifier(actions, mod, DiscardHandThenDrawModifier.ID);
-            return true;
+            return specialMergeModifier(actions, mod, DiscardHandThenDrawModifier.ID);
         }
         if(mod.modId.equals(DealToAllThenTakeModifier.ID)) {
-            specialRetroactiveMergeModifier(actions, mod, DealDamageToAllModifier.ID);
-            return true;
+            return specialRetroactiveMergeModifier(actions, mod, DealDamageToAllModifier.ID);
         }
         if(mod.modId.equals(DiscardHandThenDrawModifier.ID)) {
-            specialRetroactiveMergeModifier(actions, mod, DrawCardModifier.ID);
+            return specialRetroactiveMergeModifier(actions, mod, DrawCardModifier.ID);
+        }
+        return false;
+    }
+
+    private static boolean specialMergeModifier(ConcoctionActions actions, StackableModifier mod, String mergeModId) {
+        if(CardModifierManager.hasModifier(actions, mergeModId)) {
+            StackableModifier mergeMod = (StackableModifier) CardModifierManager.getModifiers(actions, mergeModId).get(0);
+            mergeMod.amount += mod.amount;
+            actions.initializeDescription();
             return true;
         }
         return false;
     }
 
-    private static void specialMergeModifier(ConcoctionActions actions, StackableModifier mod, String mergeModId) {
-        if(CardModifierManager.hasModifier(actions, mergeModId)) {
-            StackableModifier mergeMod = (StackableModifier) CardModifierManager.getModifiers(actions, mergeModId).get(0);
-            mergeMod.amount += mod.amount;
-            actions.initializeDescription();
-        } else {
-            CardModifierManager.addModifier(actions, mod);
-        }
-    }
-
-    private static void specialRetroactiveMergeModifier(ConcoctionActions actions, StackableModifier mod, String mergeModId) {
+    private static boolean specialRetroactiveMergeModifier(ConcoctionActions actions, StackableModifier mod, String mergeModId) {
         if(CardModifierManager.hasModifier(actions, mergeModId)) {
             StackableModifier mergeMod = (StackableModifier) CardModifierManager.getModifiers(actions, mergeModId).get(0);
             mod.amount += mergeMod.amount;
@@ -88,9 +88,9 @@ public class BrewStand {
             CardModifierManager.addModifier(actions, mod);
 
             actions.initializeDescription();
-        } else {
-            CardModifierManager.addModifier(actions, mod);
+            return true;
         }
+        return false;
     }
 
     public static void explosivePotionEffect() {
@@ -108,6 +108,7 @@ public class BrewStand {
     public static void resetPouchWithAllHerbs(CardGroup herbPouch) {
         if(herbPouch != null) {
             emptyPouch(herbPouch);
+            addAllHerbsToPouch(herbPouch);
             addAllHerbsToPouch(herbPouch);
         }
     }

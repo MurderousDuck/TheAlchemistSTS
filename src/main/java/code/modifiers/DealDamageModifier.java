@@ -17,10 +17,6 @@ public class DealDamageModifier extends StackableModifier {
     public static String ID = makeID("IncreaseBlockModifier");
     public static String MOD_DESCRIPTION = " Deal #b{0} damage.";
 
-    public DealDamageModifier() {
-        super(ID);
-    }
-
     public DealDamageModifier(int amount) {
         super(ID, amount);
     }

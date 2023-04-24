@@ -20,11 +20,6 @@ public class DealToAllThenTakeModifier extends StackableModifier{
     public static String MOD_DESCRIPTION = " Deal #b{0} damage to ALL enemies. Take #b{1} damage.";
     public int selfDamage;
 
-    public DealToAllThenTakeModifier() {
-        super(ID);
-        selfDamage = 1;
-    }
-
     public DealToAllThenTakeModifier(int amount, int selfDamage) {
         super(ID, amount);
         this.selfDamage = selfDamage;

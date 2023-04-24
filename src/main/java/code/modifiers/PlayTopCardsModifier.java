@@ -15,10 +15,6 @@ public class PlayTopCardsModifier extends StackableModifier {
     public static String ID = makeID("PlayTopCardsModifier");
     public static String MOD_DESCRIPTION = " Play the top #b{0} cards of your draw pile.";
 
-    public PlayTopCardsModifier() {
-        super(ID);
-    }
-
     public PlayTopCardsModifier(int amount) {
         super(ID, amount);
     }

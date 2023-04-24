@@ -17,10 +17,6 @@ public class DealDamageToAllModifier extends StackableModifier{
     public static String ID = makeID("DealDamageToAllModifier");
     public static String MOD_DESCRIPTION = " Deal #b{0} damage to ALL enemies.";
 
-    public DealDamageToAllModifier() {
-        super(ID);
-    }
-
     public DealDamageToAllModifier(int amount) {
         super(ID, amount);
     }

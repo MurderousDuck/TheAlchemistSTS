@@ -15,10 +15,6 @@ public class UpgradeCardsInHandModifier extends StackableModifier {
     public static String MOD_DESCRIPTION = " #yUpgrade all cards in your hand for the rest of combat.";
     public static String MULT_MOD_DESCRIPTION = " #yUpgrade all cards in your hand #b{0} times for the rest of combat.";
 
-    public UpgradeCardsInHandModifier() {
-        super(ID);
-    }
-
     public UpgradeCardsInHandModifier(int amount) {
         super(ID, amount);
     }

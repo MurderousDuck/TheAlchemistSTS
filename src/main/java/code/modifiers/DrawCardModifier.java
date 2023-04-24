@@ -15,10 +15,6 @@ public class DrawCardModifier extends StackableModifier {
     public static String MOD_DESCRIPTION = " Draw a card.";
     public static String MULT_MOD_DESCRIPTION = " Draw #b{0} cards.";
 
-    public DrawCardModifier() {
-        super(ID);
-    }
-
     public DrawCardModifier(int amount) {
         super(ID, amount);
     }

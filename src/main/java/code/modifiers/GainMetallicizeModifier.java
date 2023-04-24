@@ -16,10 +16,6 @@ public class GainMetallicizeModifier extends StackableModifier{
     public static String ID = makeID("GainMetallicizeModifier");
     public static String MOD_DESCRIPTION = " Gain #b{0} #yMetallicize.";
 
-    public GainMetallicizeModifier() {
-        super(ID);
-    }
-
     public GainMetallicizeModifier(int amount) {
         super(ID, amount);
     }

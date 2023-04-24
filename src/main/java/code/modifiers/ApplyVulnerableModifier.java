@@ -16,10 +16,6 @@ public class ApplyVulnerableModifier extends StackableModifier {
     public static String ID = makeID("ApplyVulnerabilityModifier");
     public static String MOD_DESCRIPTION = " Apply #b{0} #yVulnerable.";
 
-    public ApplyVulnerableModifier() {
-        super(ID);
-    }
-
     public ApplyVulnerableModifier(int amount) {
         super(ID, amount);
     }

@@ -16,10 +16,6 @@ public class GainIntangibleModifier extends StackableModifier{
     public static String ID = makeID("GainIntangibleModifier");
     public static String MOD_DESCRIPTION = " Gain #b{0} #yIntangible.";
 
-    public GainIntangibleModifier() {
-        super(ID);
-    }
-
     public GainIntangibleModifier(int amount) {
         super(ID, amount);
     }

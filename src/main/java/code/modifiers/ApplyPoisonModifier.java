@@ -16,10 +16,6 @@ public class ApplyPoisonModifier extends StackableModifier {
     public static String ID = makeID("ApplyPoisonModifier");
     public static String MOD_DESCRIPTION = " Apply #b{0} #yPoison.";
 
-    public ApplyPoisonModifier() {
-        super(ID);
-    }
-
     public ApplyPoisonModifier(int amount) {
         super(ID, amount);
     }

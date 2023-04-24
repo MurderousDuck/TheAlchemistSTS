@@ -16,10 +16,6 @@ public class GainArtifactModifier extends StackableModifier{
     public static String ID = makeID("GainArtifactModifier");
     public static String MOD_DESCRIPTION = " Gain #b{0} #yArtifact.";
 
-    public GainArtifactModifier() {
-        super(ID);
-    }
-
     public GainArtifactModifier(int amount) {
         super(ID, amount);
     }

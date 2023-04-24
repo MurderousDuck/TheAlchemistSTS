@@ -16,10 +16,6 @@ public class ApplyWeakModifier extends StackableModifier {
     public static String ID = makeID("ApplyWeakModifier");
     public static String MOD_DESCRIPTION = " Apply #b{0} #yWeak.";
 
-    public ApplyWeakModifier() {
-        super(ID);
-    }
-
     public ApplyWeakModifier(int amount) {
         super(ID, amount);
     }
