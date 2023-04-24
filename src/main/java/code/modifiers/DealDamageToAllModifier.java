@@ -19,6 +19,7 @@ public class DealDamageToAllModifier extends StackableModifier{
 
     public DealDamageToAllModifier(int amount) {
         super(ID, amount);
+        this.priority = 4;
     }
 
     @Override

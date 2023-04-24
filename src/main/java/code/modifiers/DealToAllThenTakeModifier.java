@@ -23,6 +23,7 @@ public class DealToAllThenTakeModifier extends StackableModifier{
     public DealToAllThenTakeModifier(int amount, int selfDamage) {
         super(ID, amount);
         this.selfDamage = selfDamage;
+        this.priority = 4;
     }
 
     @Override

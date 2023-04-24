@@ -19,6 +19,7 @@ public class DealDamageModifier extends StackableModifier {
 
     public DealDamageModifier(int amount) {
         super(ID, amount);
+        this.priority = 3;
     }
 
     @Override

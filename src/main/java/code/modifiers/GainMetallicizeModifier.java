@@ -18,6 +18,7 @@ public class GainMetallicizeModifier extends StackableModifier{
 
     public GainMetallicizeModifier(int amount) {
         super(ID, amount);
+        this.priority = 7;
     }
 
     @Override

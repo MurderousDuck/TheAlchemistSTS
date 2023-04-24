@@ -17,6 +17,7 @@ public class DrawCardModifier extends StackableModifier {
 
     public DrawCardModifier(int amount) {
         super(ID, amount);
+        this.priority = 10;
     }
 
     @Override

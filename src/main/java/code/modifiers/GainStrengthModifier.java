@@ -18,6 +18,7 @@ public class GainStrengthModifier extends StackableModifier{
 
     public GainStrengthModifier(int amount) {
         super(ID, amount);
+        this.priority = 7;
     }
 
     @Override

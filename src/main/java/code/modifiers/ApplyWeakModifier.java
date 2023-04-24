@@ -18,6 +18,7 @@ public class ApplyWeakModifier extends StackableModifier {
 
     public ApplyWeakModifier(int amount) {
         super(ID, amount);
+        this.priority = 5;
     }
 
     @Override

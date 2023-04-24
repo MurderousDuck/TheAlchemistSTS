@@ -17,6 +17,7 @@ public class FetchDrawPileModifier extends StackableModifier {
 
     public FetchDrawPileModifier(int amount) {
         super(ID, amount);
+        this.priority = 11;
     }
 
     @Override

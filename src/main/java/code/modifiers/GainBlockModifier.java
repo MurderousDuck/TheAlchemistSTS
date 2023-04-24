@@ -17,6 +17,7 @@ public class GainBlockModifier extends StackableModifier {
 
     public GainBlockModifier(int amount) {
         super(ID, amount);
+        this.priority = 2;
     }
 
     @Override

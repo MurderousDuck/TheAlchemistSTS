@@ -20,6 +20,7 @@ public class DoublePlayModifier extends StackableModifier {
 
     public DoublePlayModifier(int amount) {
         super(ID, amount);
+        this.priority = 14;
     }
 
     @Override

@@ -18,6 +18,7 @@ public class ApplyVulnerableModifier extends StackableModifier {
 
     public ApplyVulnerableModifier(int amount) {
         super(ID, amount);
+        this.priority = 5;
     }
 
     @Override

@@ -17,6 +17,7 @@ public class PlayTopCardsModifier extends StackableModifier {
 
     public PlayTopCardsModifier(int amount) {
         super(ID, amount);
+        this.priority = 13;
     }
 
     @Override

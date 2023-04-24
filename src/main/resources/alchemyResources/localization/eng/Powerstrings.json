@@ -19,5 +19,12 @@
       "At the end of this turn, lose #b",
       " #yArtifact."
     ]
+  },
+  "${modID}:ThornsLoss": {
+    "NAME": "Thorns Down",
+    "DESCRIPTIONS": [
+      "At the end of this turn, lose #b",
+      " #Thorns."
+    ]
   }
 }

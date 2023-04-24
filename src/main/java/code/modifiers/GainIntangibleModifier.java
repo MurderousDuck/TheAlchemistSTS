@@ -18,6 +18,7 @@ public class GainIntangibleModifier extends StackableModifier{
 
     public GainIntangibleModifier(int amount) {
         super(ID, amount);
+        this.priority = 1;
     }
 
     @Override

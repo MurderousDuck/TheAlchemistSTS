@@ -18,6 +18,7 @@ public class GainThornsModifier extends StackableModifier{
 
     public GainThornsModifier(int amount) {
         super(ID, amount);
+        this.priority = 7;
     }
 
     @Override

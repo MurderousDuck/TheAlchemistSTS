@@ -18,6 +18,7 @@ public class GainArtifactModifier extends StackableModifier{
 
     public GainArtifactModifier(int amount) {
         super(ID, amount);
+        this.priority = 6;
     }
 
     @Override

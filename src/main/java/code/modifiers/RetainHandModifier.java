@@ -19,6 +19,7 @@ public class RetainHandModifier extends StackableModifier {
 
     public RetainHandModifier(int amount) {
         super(ID, amount);
+        this.priority = 7;
     }
 
     @Override

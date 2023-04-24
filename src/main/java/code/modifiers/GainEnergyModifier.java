@@ -16,6 +16,7 @@ public class GainEnergyModifier extends StackableModifier {
 
     public GainEnergyModifier(int amount) {
         super(ID, amount);
+        this.priority = 8;
     }
 
     @Override

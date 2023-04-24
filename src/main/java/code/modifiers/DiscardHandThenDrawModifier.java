@@ -16,6 +16,7 @@ public class DiscardHandThenDrawModifier extends StackableModifier {
 
     public DiscardHandThenDrawModifier(int amount) {
         super(ID, amount);
+        this.priority = 9;
     }
 
     @Override

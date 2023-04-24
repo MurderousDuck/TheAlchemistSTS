@@ -18,6 +18,7 @@ public class GainDexterityModifier extends StackableModifier{
 
     public GainDexterityModifier(int amount) {
         super(ID, amount);
+        this.priority = 7;
     }
 
     @Override

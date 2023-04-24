@@ -18,6 +18,7 @@ public class ApplyPoisonModifier extends StackableModifier {
 
     public ApplyPoisonModifier(int amount) {
         super(ID, amount);
+        this.priority = 5;
     }
 
     @Override

@@ -17,6 +17,7 @@ public class UpgradeCardsInHandModifier extends StackableModifier {
 
     public UpgradeCardsInHandModifier(int amount) {
         super(ID, amount);
+        this.priority = 12;
     }
 
     @Override
