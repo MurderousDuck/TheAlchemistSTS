@@ -47,12 +47,17 @@ public class HerbPouchButton extends ClickableUIElement {
 
     public static final String[] TEXT = uiStrings.TEXT;
 
+    public final float POUCH_X;
+    public final float POUCH_Y;
+
     private final BobEffect bob;
 
     private boolean isOpen = false;
 
     public HerbPouchButton() {
         super((Texture)null, 0.0F, Settings.HEIGHT - 800.0F * Settings.scale, 128.0F, 128.0F);
+        POUCH_X = this.x;
+        POUCH_Y = this.y;
         this.bob = new BobEffect(1.1F);
     }
 

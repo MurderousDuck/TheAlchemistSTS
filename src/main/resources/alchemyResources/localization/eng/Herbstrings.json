@@ -53,7 +53,7 @@
   },
   "${ModID}:Thornybulb": {
     "NAME": "Thornybulb",
-    "DESCRIPTION": "${ModID}:Brew: Gain 4 Thorns. NL ${ModID}:Eat: Gain 2 Thorns."
+    "DESCRIPTION": "${ModID}:Brew: Gain 3 Thorns. NL ${ModID}:Eat: Gain 3 Temporary Thorns."
   },
   "${ModID}:Artiflower": {
     "NAME": "Artiflower",

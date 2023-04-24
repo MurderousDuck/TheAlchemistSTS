@@ -9,10 +9,6 @@ import code.alchemy.ConcoctionBelt;
 import code.cards.AbstractEasyCard;
 import code.cards.cardvars.SecondDamage;
 import code.cards.cardvars.SecondMagicNumber;
-import code.herbs.common.Blazepepper;
-import code.herbs.common.Cherryburst;
-import code.herbs.common.Shieldlym;
-import code.herbs.common.Wavycap;
 import code.relics.AbstractEasyRelic;
 import code.ui.HerbPouchButton;
 import code.util.BrewStand;
@@ -59,6 +55,8 @@ public class ModFile implements
     public static ConcoctionBelt concoctionBelt;
     public static int herbPouchKey = 34;
     public static int[] potionSackKeys = new int[] { 37, 43, 44, 45 };
+
+    public static CardGroup herbPool;
 
     public static final String SHOULDER1 = modID + "Resources/images/char/mainChar/shoulder.png";
     public static final String SHOULDER2 = modID + "Resources/images/char/mainChar/shoulder2.png";
@@ -230,5 +228,7 @@ public class ModFile implements
     @Override
     public void receivePostInitialize() {
         ConsoleCommand.addCommand("resetAndFillPouch", ResetAndFillPouch.class);
+        herbPool = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
+        BrewStand.addAllHerbsToCardGroup(herbPool);
     }
 }

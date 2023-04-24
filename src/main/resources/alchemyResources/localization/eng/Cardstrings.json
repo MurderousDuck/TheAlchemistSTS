@@ -15,5 +15,9 @@
     "NAME": "Campfire Brewing",
     "DESCRIPTION": "${ModID}:Brew.",
     "UPGRADE_DESCRIPTION": "${ModID}:Brew. Draw a card."
+  },
+  "${ModID}:CarefulForaging": {
+    "NAME": "Careful Foraging",
+    "DESCRIPTION": "${ModID}:Forage !M!. Gain !B! Block."
   }
 }

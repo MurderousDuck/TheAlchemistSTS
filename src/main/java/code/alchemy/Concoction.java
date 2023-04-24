@@ -32,6 +32,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
@@ -53,6 +54,7 @@ public class Concoction extends CustomPotion {
             herbs = herbsToBrew;
             for (HerbCard herb : herbsToBrew) {
                 herb.brew(null, actions);
+                CardModifierManager.modifiers(actions).sort(Comparator.comparingInt(value -> value.priority));
             }
             initializeDescription();
         }

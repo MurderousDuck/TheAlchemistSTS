@@ -41,5 +41,13 @@
       "metal"
     ],
     "DESCRIPTION": "Gain #yBlock at the end of you turn."
+  },
+  {
+    "PROPER_NAME": "Forage",
+    "NAMES": [
+      "forage",
+      "Forage"
+    ],
+    "DESCRIPTION": "Adds a random #yHerb to your #yPouch."
   }
 ]

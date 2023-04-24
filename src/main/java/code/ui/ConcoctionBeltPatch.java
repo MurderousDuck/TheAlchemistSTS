@@ -11,7 +11,9 @@ public class ConcoctionBeltPatch {
     public static class PotionSackUpdatePatch {
         @SpirePostfixPatch
         public static void Postfix(AbstractPlayer __instance) {
-            ModFile.concoctionBelt.update();
+            if(ModFile.concoctionBelt != null) {
+                ModFile.concoctionBelt.update();
+            }
         }
     }
 
@@ -19,8 +21,10 @@ public class ConcoctionBeltPatch {
     public static class PotionSackRenderPatch {
         @SpirePostfixPatch
         public static void Postfix(EnergyPanel __instance, SpriteBatch sb) {
-            ModFile.concoctionBelt.render(sb);
-            ModFile.concoctionBelt.potionUi.render(sb);
+            if(ModFile.concoctionBelt != null) {
+                ModFile.concoctionBelt.render(sb);
+                ModFile.concoctionBelt.potionUi.render(sb);
+            }
         }
     }
 
