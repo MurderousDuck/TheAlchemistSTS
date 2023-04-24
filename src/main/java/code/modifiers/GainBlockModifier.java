@@ -1,6 +1,7 @@
 package code.modifiers;
 
 import basemod.abstracts.AbstractCardModifier;
+import code.alchemy.ConcoctionActions;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,17 +13,14 @@ import static code.util.Wiz.atb;
 
 public class GainBlockModifier extends StackableModifier {
     public static String ID = makeID("GainBlockModifier");
-    public static String MOD_DESCRIPTION = " Gain {0} Block.";
-
-    public int amount;
+    public static String MOD_DESCRIPTION = " Gain #b{0} #yBlock.";
 
     public GainBlockModifier() {
-        new GainBlockModifier(1);
+        super(ID);
     }
 
     public GainBlockModifier(int amount) {
-        this.amount = amount;
-        this.priority = 0;
+        super(ID, amount);
     }
 
     @Override
@@ -43,5 +41,10 @@ public class GainBlockModifier extends StackableModifier {
     @Override
     public String identifier(AbstractCard card) {
         return ID;
+    }
+
+    @Override
+    public String getConcoctionString() {
+        return MOD_DESCRIPTION.replace("{0}", amount + "");
     }
 }

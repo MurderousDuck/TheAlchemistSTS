@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.powers.ArtifactPower;
 import static code.util.Wiz.atb;
 
 public class LoseArtifactPower extends AbstractEasyPower {
-    public static final String POWER_ID = "TempArtifact";
+    public static final String POWER_ID = "ArtifactLoss";
 
     public LoseArtifactPower(AbstractCreature owner, int amount) {
         super(POWER_ID, PowerType.DEBUFF, false, owner, amount);

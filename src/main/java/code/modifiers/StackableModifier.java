@@ -8,14 +8,16 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import static code.ModFile.makeID;
 
 public abstract class StackableModifier extends AbstractCardModifier {
-    public String ID = makeID("StackableModifier");
+    public String modId;
     public int amount;
 
-    public StackableModifier() {
+    public StackableModifier(String ID) {
+        modId = ID;
         amount = 1;
     }
 
-    public StackableModifier(int amount) {
+    public StackableModifier(String ID, int amount) {
+        modId = ID;
         this.amount = amount;
     }
 
@@ -23,8 +25,7 @@ public abstract class StackableModifier extends AbstractCardModifier {
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
     }
 
-    @Override
-    public String identifier(AbstractCard card) {
-        return ID;
+    public String getConcoctionString() {
+        return "";
     }
 }

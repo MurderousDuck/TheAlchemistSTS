@@ -2,6 +2,7 @@ package code;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.devcommands.ConsoleCommand;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import code.alchemy.ConcoctionBelt;
@@ -14,7 +15,9 @@ import code.herbs.common.Shieldlym;
 import code.herbs.common.Wavycap;
 import code.relics.AbstractEasyRelic;
 import code.ui.HerbPouchButton;
+import code.util.BrewStand;
 import code.util.Wiz;
+import code.util.commands.ResetAndFillPouch;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -157,6 +160,7 @@ public class ModFile implements
     @Override
     public void receiveEditStrings() {
         BaseMod.loadCustomStringsFile(CardStrings.class, modID + "Resources/localization/" + getLangString() + "/Cardstrings.json");
+        BaseMod.loadCustomStringsFile(CardStrings.class, modID + "Resources/localization/" + getLangString() + "/Herbstrings.json");
         BaseMod.loadCustomStringsFile(RelicStrings.class, modID + "Resources/localization/" + getLangString() + "/Relicstrings.json");
         BaseMod.loadCustomStringsFile(CharacterStrings.class, modID + "Resources/localization/" + getLangString() + "/Charstrings.json");
         BaseMod.loadCustomStringsFile(PowerStrings.class, modID + "Resources/localization/" + getLangString() + "/Powerstrings.json");
@@ -205,11 +209,9 @@ public class ModFile implements
         if(AbstractDungeon.player instanceof TheAlchemist) {
             herbPouchButton = new HerbPouchButton();
             herbPouch = new CardGroup(CardGroup.CardGroupType.DRAW_PILE);
-            herbPouch.addToBottom(new Blazepepper());
-            herbPouch.addToBottom(new Shieldlym());
-            herbPouch.addToBottom(new Wavycap());
-            herbPouch.addToBottom(new Cherryburst());
+            BrewStand.resetPouchWithAllHerbs(herbPouch);
 
+            concoctionBelt = new ConcoctionBelt();
             concoctionBelt.show();
             concoctionBelt.update();
             concoctionBelt.removeAllPotions();
@@ -227,8 +229,6 @@ public class ModFile implements
 
     @Override
     public void receivePostInitialize() {
-        if(AbstractDungeon.player instanceof TheAlchemist) {
-            concoctionBelt = new ConcoctionBelt();
-        }
+        ConsoleCommand.addCommand("resetAndFillPouch", ResetAndFillPouch.class);
     }
 }

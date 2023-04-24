@@ -34,5 +34,12 @@
       "Herbs"
     ],
     "DESCRIPTION": "Ingredients used for #yBrewing stored in a #yPouch."
+  },
+  {
+    "PROPER_NAME": "Metallicize",
+    "NAMES": [
+      "metal"
+    ],
+    "DESCRIPTION": "Gain #yBlock at the end of you turn."
   }
 ]

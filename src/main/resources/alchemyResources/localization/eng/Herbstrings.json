@@ -1,0 +1,90 @@
+{
+  "${ModID}:Blazepepper": {
+    "NAME": "Blazepepper",
+    "DESCRIPTION": "${ModID}:Brew: Deal 10 damage. NL ${ModID}:Eat: Deal 5 damage."
+  },
+  "${ModID}:Shieldlym": {
+    "NAME": "Shieldlym",
+    "DESCRIPTION": "${ModID}:Brew: Gain 10 Block. NL ${ModID}:Eat: Gain 5 Block."
+  },
+  "${ModID}:Wavycap": {
+    "NAME": "Wavycap",
+    "DESCRIPTION": "${ModID}:Brew: Deal 5 damage. Gain 5 Block. NL ${ModID}:Eat: Deal 3 damage to a random enemy. Gain 3 Block."
+  },
+  "${ModID}:Cherryburst": {
+    "NAME": "Cherryburst",
+    "DESCRIPTION": "${ModID}:Brew: Deal 7 damage to ALL enemies. NL ${ModID}:Eat: Deal 4 damage to ALL enemies."
+  },
+  "${ModID}:Rotleaf": {
+    "NAME": "Rotleaf",
+    "DESCRIPTION": "${ModID}:Brew: Apply 5 Poison. NL ${ModID}:Eat: Apply 3 Poison to a random enemy."
+  },
+  "${ModID}:Buffbloom": {
+    "NAME": "Buffbloom",
+    "DESCRIPTION": "${ModID}:Brew: Gain 1 Strength. NL ${ModID}:Eat: Gain 2 Temporary Strength."
+  },
+  "${ModID}:Agileaf": {
+    "NAME": "Agileaf",
+    "DESCRIPTION": "${ModID}:Brew: Gain 1 Dexterity. NL ${ModID}:Eat: Gain 2 Temporary Dexterity."
+  },
+  "${ModID}:Frightlure": {
+    "NAME": "Frightlure",
+    "DESCRIPTION": "${ModID}:Brew: Apply 2 Vulnerable. NL ${ModID}:Eat: Apply 1 Vulnerable to a random enemy."
+  },
+  "${ModID}:Sappervine": {
+    "NAME": "Sappervine",
+    "DESCRIPTION": "${ModID}:Brew: Apply 2 Weak. NL ${ModID}:Eat: Apply 2 Weak to a random enemy."
+  },
+  "${ModID}:Joltleaf": {
+    "NAME": "Joltleaf",
+    "DESCRIPTION": "${ModID}:Brew: Gain [E]. NL ${ModID}:Eat: Gain [E] next turn."
+  },
+  "${ModID}:Gummush": {
+    "NAME": "Gummush",
+    "DESCRIPTION": "${ModID}:Brew: Retain your hand this turn. NL ${ModID}:Eat: Retain a card in your hand this turn."
+  },
+  "${ModID}:Swiftroot": {
+    "NAME": "Swiftroot",
+    "DESCRIPTION": "${ModID}:Brew: Draw 2 cards. NL ${ModID}:Eat: Draw a card."
+  },
+  "${ModID}:ForgesEmbrace": {
+    "NAME": "Forge's Embrace",
+    "DESCRIPTION": "${ModID}:Brew: Upgrade all cards in your hand for the rest of combat. NL ${ModID}:Eat: Upgrade a card in your hand for the rest of combat."
+  },
+  "${ModID}:Thornybulb": {
+    "NAME": "Thornybulb",
+    "DESCRIPTION": "${ModID}:Brew: Gain 4 Thorns. NL ${ModID}:Eat: Gain 2 Thorns."
+  },
+  "${ModID}:Artiflower": {
+    "NAME": "Artiflower",
+    "DESCRIPTION": "${ModID}:Brew: Gain 1 Artifact. NL ${ModID}:Eat: Gain 1 Temporary Artifact."
+  },
+  "${ModID}:Chaosbloom": {
+    "NAME": "Chaosbloom",
+    "DESCRIPTION": "${ModID}:Brew: Play the top 2 cards of your draw pile. NL ${ModID}:Eat: Play the top card of your draw pile."
+  },
+  "${ModID}:GamblersFruit": {
+    "NAME": "Gambler's Fruit",
+    "DESCRIPTION": "${ModID}:Brew: Discard your hand then draw 3 cards. NL ${ModID}:Eat: Discard a card then draw a card."
+  },
+  "${ModID}:Steeleaf": {
+    "NAME": "Steeleaf",
+    "DESCRIPTION": "${ModID}:Brew: Gain 3 Metallicize. NL ${ModID}:Eat: Gain 3 Plated Armor."
+  },
+  "${ModID}:Nitrogliceroot": {
+    "NAME": "Nitrogliceroot",
+    "DESCRIPTION": "${ModID}:Brew: Deal 30 damage to ALL enemies. Take 10 damage. NL ${ModID}:Eat: Deal 15 damage to ALL enemies. Take 5 damage."
+  },
+  "${ModID}:Spectralite": {
+    "NAME": "Spectralite",
+    "DESCRIPTION": "${ModID}:Brew: Gain 1 Intangible. NL ${ModID}:Eat: Take half damage this turn."
+  },
+  "${ModID}:MindsEye": {
+    "NAME": "Mind's Eye",
+    "DESCRIPTION": "${ModID}:Brew: Fetch a card from your draw pile. NL ${ModID}:Eat: Scry 7. Draw a card."
+  },
+  "${ModID}:Doubleye": {
+    "NAME": "Doubleye",
+    "DESCRIPTION": "${ModID}:Brew: Your next card this turn is played twice. NL ${ModID}:Eat: Choose a card in your hand. Add a copy of it to your hand."
+  }
+}

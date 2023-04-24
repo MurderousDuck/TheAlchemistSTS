@@ -4,12 +4,15 @@ import basemod.helpers.CardModifierManager;
 import code.ModFile;
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
-import code.herbs.common.Blazepepper;
-import code.herbs.common.Cherryburst;
-import code.herbs.common.Rotleaf;
-import code.herbs.common.Wavycap;
+import code.herbs.common.*;
+import code.herbs.elusive.Doubleye;
+import code.herbs.elusive.MindsEye;
+import code.herbs.elusive.Spectralite;
+import code.herbs.rare.*;
+import code.herbs.uncommon.*;
 import code.modifiers.*;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
@@ -21,29 +24,11 @@ import static code.util.Wiz.atb;
 public class BrewStand {
 
     public static boolean isConcoctionThrowable(ArrayList<HerbCard> herbsToBrew) {
-        return herbsToBrew.stream().anyMatch(BrewStand::isHerbThrowable);
-    }
-    public static boolean isHerbThrowable(HerbCard herb) {
-        return herb instanceof Blazepepper || herb instanceof Wavycap || herb instanceof Rotleaf || herb instanceof Cherryburst;
+        return herbsToBrew.stream().anyMatch(h -> h.throwable);
     }
 
-    public static boolean isConcoctionTargetable(ArrayList<HerbCard> herbsToBrew) {
-        return herbsToBrew.stream().anyMatch(BrewStand::isHerbTargetable);
-    }
-    public static boolean isHerbTargetable(HerbCard herb) {
-        return herb instanceof Blazepepper || herb instanceof Wavycap || herb instanceof Rotleaf;
-    }
-
-    public static String getConcoctionDescription(ArrayList<HerbCard> herbs) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < herbs.size(); i++) {
-            if(i < herbs.size() - 1) {
-                sb.append(herbs.get(i).brewDescription).append(" ");
-            } else {
-                sb.append(herbs.get(i).brewDescription);
-            }
-        }
-        return sb.toString();
+    public static boolean isConcoctionTargeted(ArrayList<HerbCard> herbsToBrew) {
+        return herbsToBrew.stream().anyMatch(h -> h.targeted);
     }
 
     public static int getBrewAmount() {
@@ -54,8 +39,8 @@ public class BrewStand {
 
     public static void updateStackableModifier(ConcoctionActions actions, StackableModifier mod) {
         if(!doSpecialStackingModifier(actions, mod)) {
-            if(CardModifierManager.hasModifier(actions, mod.ID)) {
-                StackableModifier modifier = (StackableModifier) CardModifierManager.getModifiers(actions, mod.ID).get(0);
+            if(CardModifierManager.hasModifier(actions, mod.modId)) {
+                StackableModifier modifier = (StackableModifier) CardModifierManager.getModifiers(actions, mod.modId).get(0);
                 modifier.amount += mod.amount;
                 actions.initializeDescription();
             } else {
@@ -65,19 +50,19 @@ public class BrewStand {
     }
 
     public static boolean doSpecialStackingModifier(ConcoctionActions actions, StackableModifier mod) {
-        if(mod.ID.equals(DealDamageToAllModifier.ID)) {
+        if(mod.modId.equals(DealDamageToAllModifier.ID)) {
             specialMergeModifier(actions, mod, DealToAllThenTakeModifier.ID);
             return true;
         }
-        if(mod.ID.equals(DrawCardModifier.ID)) {
+        if(mod.modId.equals(DrawCardModifier.ID)) {
             specialMergeModifier(actions, mod, DiscardHandThenDrawModifier.ID);
             return true;
         }
-        if(mod.ID.equals(DealToAllThenTakeModifier.ID)) {
+        if(mod.modId.equals(DealToAllThenTakeModifier.ID)) {
             specialRetroactiveMergeModifier(actions, mod, DealDamageToAllModifier.ID);
             return true;
         }
-        if(mod.ID.equals(DiscardHandThenDrawModifier.ID)) {
+        if(mod.modId.equals(DiscardHandThenDrawModifier.ID)) {
             specialRetroactiveMergeModifier(actions, mod, DrawCardModifier.ID);
             return true;
         }
@@ -118,5 +103,41 @@ public class BrewStand {
 
     public static void playerExplosion() {
         atb(new VFXAction(new ExplosionSmallEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.1F));
+    }
+
+    public static void resetPouchWithAllHerbs(CardGroup herbPouch) {
+        if(herbPouch != null) {
+            emptyPouch(herbPouch);
+            addAllHerbsToPouch(herbPouch);
+        }
+    }
+
+    public static void emptyPouch(CardGroup herbPouch) {
+        herbPouch.group.clear();
+    }
+
+    public static void addAllHerbsToPouch(CardGroup herbPouch) {
+        herbPouch.addToBottom(new Blazepepper());
+        herbPouch.addToBottom(new Shieldlym());
+        herbPouch.addToBottom(new Wavycap());
+        herbPouch.addToBottom(new Cherryburst());
+        herbPouch.addToBottom(new Rotleaf());
+        herbPouch.addToBottom(new Buffbloom());
+        herbPouch.addToBottom(new Agileaf());
+        herbPouch.addToBottom(new Frightlure());
+        herbPouch.addToBottom(new Sappervine());
+        herbPouch.addToBottom(new Joltleaf());
+        herbPouch.addToBottom(new Gummush());
+        herbPouch.addToBottom(new Swiftroot());
+        herbPouch.addToBottom(new ForgesEmbrace());
+        herbPouch.addToBottom(new Thornybulb());
+        herbPouch.addToBottom(new Artiflower());
+        herbPouch.addToBottom(new Chaosbloom());
+        herbPouch.addToBottom(new GamblersFruit());
+        herbPouch.addToBottom(new Steeleaf());
+        herbPouch.addToBottom(new Nitrogliceroot());
+        herbPouch.addToBottom(new Spectralite());
+        herbPouch.addToBottom(new MindsEye());
+        herbPouch.addToBottom(new Doubleye());
     }
 }

@@ -15,40 +15,5 @@
     "NAME": "Campfire Brewing",
     "DESCRIPTION": "${ModID}:Brew.",
     "UPGRADE_DESCRIPTION": "${ModID}:Brew. Draw a card."
-  },
-  "${ModID}:Blazepepper": {
-    "NAME": "Blazepepper",
-    "DESCRIPTION": "${ModID}:Brew: Deal 10 damage. NL ${ModID}:Eat: Deal 5 damage.",
-    "EXTENDED_DESCRIPTION": [
-      "Deal 10 damage."
-    ]
-  },
-  "${ModID}:Shieldlym": {
-    "NAME": "Shieldlym",
-    "DESCRIPTION": "${ModID}:Brew: Gain 10 Block. NL ${ModID}:Eat: Gain 5 Block.",
-    "EXTENDED_DESCRIPTION": [
-      "Gain 10 Block."
-    ]
-  },
-  "${ModID}:Wavycap": {
-    "NAME": "Wavycap",
-    "DESCRIPTION": "${ModID}:Brew: Deal 5 damage. Gain 5 Block. NL ${ModID}:Eat: Deal 3 damage to a random enemy. Gain 3 Block.",
-    "EXTENDED_DESCRIPTION": [
-      "Deal 5 damage. Gain 5 Block."
-    ]
-  },
-  "${ModID}:Cherryburst": {
-    "NAME": "Cherryburst",
-    "DESCRIPTION": "${ModID}:Brew: Deal 7 damage to ALL enemies. NL ${ModID}:Eat: Deal 4 damage to ALL enemies.",
-    "EXTENDED_DESCRIPTION": [
-      "Deal 7 damage to ALL enemies."
-    ]
-  },
-  "${ModID}:Rotleaf": {
-    "NAME": "Rotleaf",
-    "DESCRIPTION": "${ModID}:Brew: Apply 5 Poison. NL ${ModID}:Eat: Apply 3 Poison to a random enemy.",
-    "EXTENDED_DESCRIPTION": [
-      "Apply 5 Poison."
-    ]
   }
 }

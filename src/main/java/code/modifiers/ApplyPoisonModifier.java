@@ -1,6 +1,7 @@
 package code.modifiers;
 
 import basemod.abstracts.AbstractCardModifier;
+import code.alchemy.ConcoctionActions;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,15 +14,14 @@ import static code.util.Wiz.atb;
 
 public class ApplyPoisonModifier extends StackableModifier {
     public static String ID = makeID("ApplyPoisonModifier");
-    public static String MOD_DESCRIPTION = " Apply {0} Poison.";
-    public int amount;
+    public static String MOD_DESCRIPTION = " Apply #b{0} #yPoison.";
 
     public ApplyPoisonModifier() {
-        amount = 1;
+        super(ID);
     }
 
     public ApplyPoisonModifier(int amount) {
-        this.amount = amount;
+        super(ID, amount);
     }
 
     @Override
@@ -42,5 +42,10 @@ public class ApplyPoisonModifier extends StackableModifier {
     @Override
     public String identifier(AbstractCard card) {
         return ID;
+    }
+
+    @Override
+    public String getConcoctionString() {
+        return MOD_DESCRIPTION.replace("{0}", amount + "");
     }
 }

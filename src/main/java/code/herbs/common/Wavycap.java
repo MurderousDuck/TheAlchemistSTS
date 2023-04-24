@@ -22,7 +22,7 @@ public class Wavycap extends HerbCard {
     public final static String ID = makeID("Wavycap");
 
     public Wavycap() {
-        super(ID, 5, 3, HerbRarity.COMMON);
+        super(ID, 5, 3, HerbRarity.COMMON, true, true);
     }
 
     public void brew(AbstractCreature target, ConcoctionActions actions) {

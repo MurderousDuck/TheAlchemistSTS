@@ -19,7 +19,7 @@ public class Frightlure extends HerbCard {
     public final static String ID = makeID("Frightlure");
 
     public Frightlure() {
-        super(ID, 2, 1, HerbRarity.UNCOMMON);
+        super(ID, 2, 1, HerbRarity.UNCOMMON, true, true);
     }
 
     @Override

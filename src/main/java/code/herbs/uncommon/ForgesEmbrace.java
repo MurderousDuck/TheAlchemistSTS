@@ -5,6 +5,7 @@ import code.herbs.HerbCard;
 import code.herbs.HerbRarity;
 import code.modifiers.UpgradeCardsInHandModifier;
 import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
+import com.megacrit.cardcrawl.actions.unique.ArmamentsAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -26,7 +27,7 @@ public class ForgesEmbrace extends HerbCard {
 
     @Override
     public void eat() {
-        atb(new UpgradeRandomCardAction());
+        atb(new ArmamentsAction(false));
     }
 
     @Override

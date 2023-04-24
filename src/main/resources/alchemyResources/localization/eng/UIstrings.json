@@ -18,7 +18,7 @@
   },
   "${ModID}:ConcoctionBelt": {
     "TEXT": [
-      "Your Belt can hold 3 Concoctions, which are only available during this combat.",
+      "Your Belt can hold 4 Concoctions, which are only available during this combat.",
       "The Belt"
     ]
   },
@@ -26,6 +26,11 @@
     "TEXT": [
       "Choose ",
       " Herbs to Brew."
+    ]
+  },
+  "${ModID}:CopyCardAction": {
+    "TEXT": [
+      "Duplicate"
     ]
   }
 }

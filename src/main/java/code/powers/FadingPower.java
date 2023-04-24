@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class FadingPower extends AbstractEasyPower {
-    public static final String POWER_ID = "Fading";
+    public static final String POWER_ID = "FadingPower";
 
     public FadingPower(AbstractCreature owner, int amount) {
         super(POWER_ID, AbstractPower.PowerType.BUFF, false, owner, amount);

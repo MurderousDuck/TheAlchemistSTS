@@ -19,7 +19,7 @@ public class Rotleaf extends HerbCard {
     public final static String ID = makeID("Rotleaf");
 
     public Rotleaf() {
-        super(ID, 5, 3, HerbRarity.COMMON);
+        super(ID, 5, 3, HerbRarity.COMMON, true, true);
     }
 
     @Override

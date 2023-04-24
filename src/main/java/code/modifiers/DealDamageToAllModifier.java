@@ -1,6 +1,7 @@
 package code.modifiers;
 
 import basemod.abstracts.AbstractCardModifier;
+import code.alchemy.ConcoctionActions;
 import code.util.BrewStand;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -14,15 +15,14 @@ import static code.util.Wiz.atb;
 
 public class DealDamageToAllModifier extends StackableModifier{
     public static String ID = makeID("DealDamageToAllModifier");
-    public static String MOD_DESCRIPTION = " Deal {0} damage to ALL enemies.";
-    public int amount;
+    public static String MOD_DESCRIPTION = " Deal #b{0} damage to ALL enemies.";
 
     public DealDamageToAllModifier() {
-        amount = 1;
+        super(ID);
     }
 
     public DealDamageToAllModifier(int amount) {
-        this.amount = amount;
+        super(ID, amount);
     }
 
     @Override
@@ -44,6 +44,11 @@ public class DealDamageToAllModifier extends StackableModifier{
     @Override
     public String identifier(AbstractCard card) {
         return ID;
+    }
+
+    @Override
+    public String getConcoctionString() {
+        return MOD_DESCRIPTION.replace("{0}", amount + "");
     }
 }
 

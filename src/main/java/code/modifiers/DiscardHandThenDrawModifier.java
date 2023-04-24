@@ -2,6 +2,7 @@ package code.modifiers;
 
 import basemod.abstracts.AbstractCardModifier;
 import code.actions.DiscardHandThenDrawAction;
+import code.alchemy.ConcoctionActions;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -11,15 +12,14 @@ import static code.util.Wiz.atb;
 
 public class DiscardHandThenDrawModifier extends StackableModifier {
     public static String ID = makeID("DiscardHandThenDrawModifier");
-    public static String MOD_DESCRIPTION = " Discard your hand then draw {0} cards.";
-    public int amount;
+    public static String MOD_DESCRIPTION = " Discard your hand then draw #b{0} cards.";
 
     public DiscardHandThenDrawModifier() {
-        amount = 1;
+        super(ID);
     }
 
-    public DiscardHandThenDrawModifier(int amt) {
-        amount = amt;
+    public DiscardHandThenDrawModifier(int amount) {
+        super(ID, amount);
     }
 
     @Override
@@ -40,5 +40,10 @@ public class DiscardHandThenDrawModifier extends StackableModifier {
     @Override
     public String identifier(AbstractCard card) {
         return ID;
+    }
+
+    @Override
+    public String getConcoctionString() {
+        return MOD_DESCRIPTION.replace("{0}", amount + "");
     }
 }

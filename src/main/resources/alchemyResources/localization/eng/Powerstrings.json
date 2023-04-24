@@ -6,5 +6,18 @@
       " #yStrength and #b",
       " #yDexterity."
     ]
+  },
+  "${modID}:FadingPower": {
+    "NAME": "Fading",
+    "DESCRIPTIONS": [
+      "Take half damage this turn"
+    ]
+  },
+  "${modID}:ArtifactLoss": {
+    "NAME": "Artifact Down",
+    "DESCRIPTIONS": [
+      "At the end of this turn, lose #b",
+      " #yArtifact."
+    ]
   }
 }

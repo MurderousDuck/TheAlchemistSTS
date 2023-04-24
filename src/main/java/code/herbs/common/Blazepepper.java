@@ -20,7 +20,7 @@ public class Blazepepper extends HerbCard {
     public final static String ID = makeID("Blazepepper");
 
     public Blazepepper() {
-        super(ID, 10, 5, HerbRarity.COMMON);
+        super(ID, 10, 5, HerbRarity.COMMON, true, true);
     }
 
     @Override

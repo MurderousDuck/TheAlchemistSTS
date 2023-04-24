@@ -20,7 +20,7 @@ public class Cherryburst extends HerbCard {
     public final static String ID = makeID("Cherryburst");
 
     public Cherryburst() {
-        super(ID, 7, 4, HerbRarity.COMMON);
+        super(ID, 7, 4, HerbRarity.COMMON, true, false);
     }
 
     @Override

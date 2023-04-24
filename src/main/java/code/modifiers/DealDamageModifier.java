@@ -1,6 +1,7 @@
 package code.modifiers;
 
 import basemod.abstracts.AbstractCardModifier;
+import code.alchemy.ConcoctionActions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -14,15 +15,14 @@ import static code.util.Wiz.atb;
 
 public class DealDamageModifier extends StackableModifier {
     public static String ID = makeID("IncreaseBlockModifier");
-    public static String MOD_DESCRIPTION = " Deal {0} damage.";
-    public int amount;
+    public static String MOD_DESCRIPTION = " Deal #b{0} damage.";
 
     public DealDamageModifier() {
-        amount = 1;
+        super(ID);
     }
 
     public DealDamageModifier(int amount) {
-        this.amount = amount;
+        super(ID, amount);
     }
 
     @Override
@@ -45,5 +45,10 @@ public class DealDamageModifier extends StackableModifier {
     @Override
     public String identifier(AbstractCard card) {
         return ID;
+    }
+
+    @Override
+    public String getConcoctionString() {
+        return MOD_DESCRIPTION.replace("{0}", amount + "");
     }
 }

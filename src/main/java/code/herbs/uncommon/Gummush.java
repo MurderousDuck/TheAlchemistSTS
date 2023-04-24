@@ -4,7 +4,9 @@ import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
 import code.herbs.HerbRarity;
 import code.modifiers.GainEnergyModifier;
+import code.modifiers.RetainHandModifier;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -23,12 +25,12 @@ public class Gummush extends HerbCard {
     }
 
     public void brew(AbstractCreature target, ConcoctionActions actions) {
-        updateStackableModifier(actions, new GainEnergyModifier(brewPotency));
+        updateStackableModifier(actions, new RetainHandModifier(brewPotency));
     }
 
     @Override
     public void eat() {
-        atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EnergizedPower(AbstractDungeon.player, eatPotency), eatPotency));
+        this.addToBot(new RetainCardsAction(AbstractDungeon.player, eatPotency));
     }
 
     @Override

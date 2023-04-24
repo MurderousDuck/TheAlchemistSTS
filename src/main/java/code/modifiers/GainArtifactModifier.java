@@ -1,6 +1,7 @@
 package code.modifiers;
 
 import basemod.abstracts.AbstractCardModifier;
+import code.alchemy.ConcoctionActions;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,15 +14,14 @@ import static code.util.Wiz.atb;
 
 public class GainArtifactModifier extends StackableModifier{
     public static String ID = makeID("GainArtifactModifier");
-    public static String MOD_DESCRIPTION = " Gain {0} Artifact.";
-    public int amount;
+    public static String MOD_DESCRIPTION = " Gain #b{0} #yArtifact.";
 
     public GainArtifactModifier() {
-        amount = 1;
+        super(ID);
     }
 
     public GainArtifactModifier(int amount) {
-        this.amount = amount;
+        super(ID, amount);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class GainArtifactModifier extends StackableModifier{
 
     @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtifactPower(target, this.amount), this.amount));
+        atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtifactPower(AbstractDungeon.player, this.amount), this.amount));
     }
 
     @Override
@@ -42,5 +42,10 @@ public class GainArtifactModifier extends StackableModifier{
     @Override
     public String identifier(AbstractCard card) {
         return ID;
+    }
+
+    @Override
+    public String getConcoctionString() {
+        return MOD_DESCRIPTION.replace("{0}", amount + "");
     }
 }

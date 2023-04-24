@@ -1,6 +1,7 @@
 package code.modifiers;
 
 import basemod.abstracts.AbstractCardModifier;
+import code.alchemy.ConcoctionActions;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,17 +12,14 @@ import static code.util.Wiz.atb;
 
 public class GainEnergyModifier extends StackableModifier {
     public static String ID = makeID("GainEnergyModifier");
-    public static String MOD_DESCRIPTION = " Gain {0} Energy.";
-
-    public int amount;
+    public static String MOD_DESCRIPTION = " Gain #b{0} #yEnergy.";
 
     public GainEnergyModifier() {
-        new GainEnergyModifier(1);
+        super(ID);
     }
 
     public GainEnergyModifier(int amount) {
-        this.amount = amount;
-        this.priority = 0;
+        super(ID, amount);
     }
 
     @Override
@@ -42,5 +40,10 @@ public class GainEnergyModifier extends StackableModifier {
     @Override
     public String identifier(AbstractCard card) {
         return ID;
+    }
+
+    @Override
+    public String getConcoctionString() {
+        return MOD_DESCRIPTION.replace("{0}", amount + "");
     }
 }

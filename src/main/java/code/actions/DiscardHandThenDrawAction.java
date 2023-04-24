@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class DiscardHandThenDrawAction extends AbstractGameAction {
-    private float startingDuration;
+    private final float startingDuration;
 
     public DiscardHandThenDrawAction(int amount) {
         this.target = AbstractDungeon.player;

@@ -22,12 +22,12 @@ public class Nitrogliceroot extends HerbCard {
     public final static String ID = makeID("Nitrogliceroot");
 
     public Nitrogliceroot() {
-        super(ID, 30, 15, HerbRarity.RARE);
+        super(ID, 30, 15, HerbRarity.RARE, true, false);
     }
 
     @Override
     public void brew(AbstractCreature target, ConcoctionActions actions) {
-        updateStackableModifier(actions, new DealToAllThenTakeModifier(brewPotency, brewPotency / 5));
+        updateStackableModifier(actions, new DealToAllThenTakeModifier(brewPotency, brewPotency / 3));
     }
 
     @Override
@@ -36,7 +36,7 @@ public class Nitrogliceroot extends HerbCard {
         atb(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.eatPotency, true), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
 
         BrewStand.playerExplosion();
-        atb(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.eatPotency / 5, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
+        atb(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.eatPotency / 3, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override
