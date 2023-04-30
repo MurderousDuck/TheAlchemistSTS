@@ -12,5 +12,12 @@
     "DESCRIPTIONS": [
       "#y${modID}:Concoctions use #b3 #y${modID}:Herbs instead."
     ]
+  },
+  "${ModID}:ForagingKit": {
+    "NAME": "Foraging Kit",
+    "FLAVOR": "A simple foraging kit to give every herbalist a head-start.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yForage #b3."
+    ]
   }
 }

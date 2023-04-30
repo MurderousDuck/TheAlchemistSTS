@@ -11,7 +11,7 @@ import code.cards.cardvars.SecondDamage;
 import code.cards.cardvars.SecondMagicNumber;
 import code.relics.AbstractEasyRelic;
 import code.ui.HerbPouchButton;
-import code.util.BrewStand;
+import code.util.PouchManager;
 import code.util.Wiz;
 import code.util.commands.ResetAndFillPouch;
 import com.badlogic.gdx.Gdx;
@@ -49,9 +49,11 @@ public class ModFile implements
         return modID + ":" + idText;
     }
 
-    public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
+    public static Color characterColor = new Color(112, 44, 176, 1); // This should be changed eventually
+    public static Color herbColor = new Color(23, 133, 26, 1); // This should be changed eventually
     public static HerbPouchButton herbPouchButton;
     public static CardGroup herbPouch;
+    public static int pouchSize = 10;
     public static ConcoctionBelt concoctionBelt;
     public static int herbPouchKey = 34;
     public static int[] potionSackKeys = new int[] { 37, 43, 44, 45 };
@@ -63,11 +65,13 @@ public class ModFile implements
     public static final String CORPSE = modID + "Resources/images/char/mainChar/corpse.png";
     private static final String ATTACK_S_ART = modID + "Resources/images/512/attack.png";
     private static final String SKILL_S_ART = modID + "Resources/images/512/skill.png";
+    private static final String HERB_SKILL_S_ART = modID + "Resources/images/512/herbskill.png";
     private static final String POWER_S_ART = modID + "Resources/images/512/power.png";
     private static final String CARD_ENERGY_S = modID + "Resources/images/512/energy.png";
     private static final String TEXT_ENERGY = modID + "Resources/images/512/text_energy.png";
     private static final String ATTACK_L_ART = modID + "Resources/images/1024/attack.png";
     private static final String SKILL_L_ART = modID + "Resources/images/1024/skill.png";
+    private static final String HERB_SKILL_L_ART = modID + "Resources/images/1024/herbskill.png";
     private static final String POWER_L_ART = modID + "Resources/images/1024/power.png";
     private static final String CARD_ENERGY_L = modID + "Resources/images/1024/energy.png";
     private static final String CHARSELECT_BUTTON = modID + "Resources/images/charSelect/charButton.png";
@@ -88,11 +92,13 @@ public class ModFile implements
 
     public ModFile() {
         BaseMod.subscribe(this);
-
-        BaseMod.addColor(TheAlchemist.Enums.ALCHEMIST_COLOR, characterColor, characterColor, characterColor,
-                characterColor, characterColor, characterColor, characterColor,
+        BaseMod.addColor(TheAlchemist.Enums.ALCHEMIST_COLOR, characterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+        BaseMod.addColor(TheAlchemist.Enums.HERB_COLOR, herbColor,
+                ATTACK_S_ART, HERB_SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, HERB_SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
     }
 
@@ -172,8 +178,16 @@ public class ModFile implements
         String json = Gdx.files.internal(modID + "Resources/localization/eng/Keywordstrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
 
+        String herbJson = Gdx.files.internal(modID + "Resources/localization/eng/Herbkeystrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        com.evacipated.cardcrawl.mod.stslib.Keyword[] herbKeywords = gson.fromJson(herbJson, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
+
         if (keywords != null) {
             for (Keyword keyword : keywords) {
+                BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+            }
+        }
+        if (herbKeywords != null) {
+            for (Keyword keyword : herbKeywords) {
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
@@ -183,13 +197,16 @@ public class ModFile implements
     {
         if(AbstractDungeon.player instanceof TheAlchemist) {
             if(Wiz.isInCombat())
-                renderHerbPouch(sb, AbstractDungeon.overlayMenu.combatDeckPanel.current_x);
+                renderHerbPouch(sb,
+                        AbstractDungeon.overlayMenu.energyPanel.current_x - (64 * Settings.scale),
+                        AbstractDungeon.overlayMenu.energyPanel.current_y + (100 * Settings.scale));
         }
     }
 
-    public static void renderHerbPouch(SpriteBatch spriteBatch, float x) {
+    public static void renderHerbPouch(SpriteBatch spriteBatch, float x, float y) {
         if (herbPouchButton != null) {
             herbPouchButton.setX(x);
+            herbPouchButton.setY(y);
             herbPouchButton.render(spriteBatch);
         }
     }
@@ -206,8 +223,8 @@ public class ModFile implements
     public void receiveStartGame() {
         if(AbstractDungeon.player instanceof TheAlchemist) {
             herbPouchButton = new HerbPouchButton();
-            herbPouch = new CardGroup(CardGroup.CardGroupType.DRAW_PILE);
-            BrewStand.resetPouchWithAllHerbs(herbPouch);
+            herbPouch = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            //PouchManager.resetPouchWithAllHerbs(herbPouch);
 
             concoctionBelt = new ConcoctionBelt();
             concoctionBelt.show();
@@ -229,6 +246,6 @@ public class ModFile implements
     public void receivePostInitialize() {
         ConsoleCommand.addCommand("resetAndFillPouch", ResetAndFillPouch.class);
         herbPool = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
-        BrewStand.addAllHerbsToCardGroup(herbPool);
+        PouchManager.addAllHerbsToCardGroup(herbPool);
     }
 }

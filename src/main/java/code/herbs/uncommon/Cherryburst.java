@@ -1,4 +1,4 @@
-package code.herbs.common;
+package code.herbs.uncommon;
 
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
@@ -20,7 +20,7 @@ public class Cherryburst extends HerbCard {
     public final static String ID = makeID("Cherryburst");
 
     public Cherryburst() {
-        super(ID, 7, 4, HerbRarity.COMMON, true, false);
+        super(ID, 12, 6, HerbRarity.UNCOMMON, true, false);
     }
 
     @Override

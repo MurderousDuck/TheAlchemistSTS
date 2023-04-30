@@ -5,6 +5,7 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import code.cards.alchemist.basic.Defend;
 import code.cards.alchemist.basic.Strike;
+import code.relics.ForagingKit;
 import code.relics.TodoItem;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -70,7 +71,7 @@ public class TheAlchemist extends CustomPlayer {
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(TodoItem.ID);
+        retVal.add(ForagingKit.ID);
         return retVal;
     }
 
@@ -174,8 +175,13 @@ public class TheAlchemist extends CustomPlayer {
         public static AbstractPlayer.PlayerClass THE_ALCHEMIST;
         @SpireEnum(name = "ALCHEMIST_COLOR")
         public static AbstractCard.CardColor ALCHEMIST_COLOR;
+        @SpireEnum(name = "HERB_COLOR")
+        public static AbstractCard.CardColor HERB_COLOR;
         @SpireEnum(name = "ALCHEMIST_COLOR")
         @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
+        @SpireEnum(name = "HERB_COLOR")
+        @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType HERB_LIBRARY_COLOR;
     }
 }

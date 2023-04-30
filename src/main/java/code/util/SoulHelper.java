@@ -2,7 +2,6 @@ package code.util;
 
 import basemod.ReflectionHacks;
 import code.ModFile;
-import code.herbs.HerbCard;
 import com.badlogic.gdx.math.Vector2;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.Soul;

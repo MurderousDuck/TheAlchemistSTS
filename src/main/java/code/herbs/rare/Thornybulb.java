@@ -1,36 +1,38 @@
-package code.herbs.common;
+package code.herbs.rare;
 
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
 import code.herbs.HerbRarity;
-import code.modifiers.ApplyPoisonModifier;
+import code.modifiers.GainThornsModifier;
+import code.powers.LoseThornsPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 
 import static code.ModFile.makeID;
 import static code.util.BrewStand.updateStackableModifier;
 import static code.util.Wiz.atb;
 
-public class Rotleaf extends HerbCard {
-    public final static String ID = makeID("Rotleaf");
+public class Thornybulb extends HerbCard {
+    public final static String ID = makeID("Thornybulb");
 
-    public Rotleaf() {
-        super(ID, 5, 3, HerbRarity.COMMON, true, true);
+    public Thornybulb() {
+        super(ID, 3, 3, HerbRarity.RARE);
     }
 
     @Override
     public void brew(AbstractCreature target, ConcoctionActions actions) {
-        updateStackableModifier(actions, new ApplyPoisonModifier(brewPotency));
+        updateStackableModifier(actions, new GainThornsModifier(brewPotency));
     }
 
     @Override
     public void eat() {
-        AbstractCreature target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
-        atb(new ApplyPowerAction(target, AbstractDungeon.player, new PoisonPower(target, AbstractDungeon.player, this.brewPotency), this.brewPotency));
+        AbstractCreature target = AbstractDungeon.player;
+        atb(new ApplyPowerAction(target, AbstractDungeon.player, new ThornsPower(target, this.eatPotency), this.eatPotency));
+        atb(new ApplyPowerAction(target, AbstractDungeon.player, new LoseThornsPower(target, this.eatPotency), this.eatPotency));
     }
 
     @Override

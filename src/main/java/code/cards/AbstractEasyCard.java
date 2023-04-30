@@ -202,7 +202,7 @@ public abstract class AbstractEasyCard extends CustomCard {
         atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, secondDamage, damageTypeForTurn), fx));
     }
 
-    protected void blck() {
+    protected void block() {
         atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
     }
 

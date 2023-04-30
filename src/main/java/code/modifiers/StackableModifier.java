@@ -5,8 +5,6 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
-import static code.ModFile.makeID;
-
 public abstract class StackableModifier extends AbstractCardModifier {
     public String modId;
     public int amount;

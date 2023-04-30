@@ -8,21 +8,22 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
-public class CarefulForaging extends AbstractEasyCard {
-    public final static String ID = makeID("CarefulForaging");
+public class CarefulForage extends AbstractEasyCard {
+    public final static String ID = makeID("CarefulForage");
 
-    public CarefulForaging() {
+    public CarefulForage() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
-        baseBlock = 4;
+        baseBlock = 3;
         magicNumber = baseMagicNumber = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        block();
         atb(new ForageAction(this.magicNumber));
-        blck();
     }
 
     public void upp() {
+        upgradeBlock(2);
         upgradeMagicNumber(1);
     }
 }

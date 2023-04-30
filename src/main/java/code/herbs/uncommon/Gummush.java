@@ -3,19 +3,15 @@ package code.herbs.uncommon;
 import code.alchemy.ConcoctionActions;
 import code.herbs.HerbCard;
 import code.herbs.HerbRarity;
-import code.modifiers.GainEnergyModifier;
 import code.modifiers.RetainHandModifier;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.EnergizedPower;
 
 import static code.ModFile.makeID;
 import static code.util.BrewStand.updateStackableModifier;
-import static code.util.Wiz.atb;
 
 public class Gummush extends HerbCard {
     public final static String ID = makeID("Gummush");

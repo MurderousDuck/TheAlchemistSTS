@@ -28,6 +28,12 @@
       " Herbs to Brew."
     ]
   },
+  "${ModID}:EatAction": {
+    "TEXT": [
+      "Choose ",
+      " Herbs to Eat."
+    ]
+  },
   "${ModID}:CopyCardAction": {
     "TEXT": [
       "Duplicate"

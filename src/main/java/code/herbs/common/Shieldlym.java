@@ -18,7 +18,7 @@ public class Shieldlym extends HerbCard {
     public final static String ID = makeID("Shieldlym");
 
     public Shieldlym() {
-        super(ID, 10, 5, HerbRarity.COMMON);
+        super(ID, 6, 3, HerbRarity.COMMON);
     }
 
     @Override

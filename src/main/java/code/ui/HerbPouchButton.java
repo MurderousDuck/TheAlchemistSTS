@@ -55,7 +55,9 @@ public class HerbPouchButton extends ClickableUIElement {
     private boolean isOpen = false;
 
     public HerbPouchButton() {
-        super((Texture)null, 0.0F, Settings.HEIGHT - 800.0F * Settings.scale, 128.0F, 128.0F);
+        super((Texture)null,
+                AbstractDungeon.overlayMenu.energyPanel.current_x,
+                AbstractDungeon.overlayMenu.energyPanel.current_y + 100, 128.0F, 128.0F);
         POUCH_X = this.x;
         POUCH_Y = this.y;
         this.bob = new BobEffect(1.1F);
@@ -83,7 +85,12 @@ public class HerbPouchButton extends ClickableUIElement {
     }
 
     public void setX(float x) {
-        super.setX(x - 0.0F);
+        super.setX(x);
+    }
+
+    public void setY(float y) {
+        this.y = y;
+        this.hitbox.y = y;
     }
 
     public void update() {

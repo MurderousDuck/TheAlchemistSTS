@@ -3,6 +3,7 @@ package code.util.commands;
 import basemod.devcommands.ConsoleCommand;
 import code.ModFile;
 import code.util.BrewStand;
+import code.util.PouchManager;
 
 public class ResetAndFillPouch extends ConsoleCommand {
     public ResetAndFillPouch() {
@@ -11,6 +12,6 @@ public class ResetAndFillPouch extends ConsoleCommand {
 
     @Override
     protected void execute(String[] strings, int i) {
-        BrewStand.resetPouchWithAllHerbs(ModFile.herbPouch);
+        PouchManager.resetPouchWithAllHerbs(ModFile.herbPouch);
     }
 }

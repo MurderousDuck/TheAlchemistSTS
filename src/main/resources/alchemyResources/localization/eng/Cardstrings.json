@@ -13,11 +13,14 @@
   },
   "${ModID}:CampfireBrewing": {
     "NAME": "Campfire Brewing",
-    "DESCRIPTION": "${ModID}:Brew.",
-    "UPGRADE_DESCRIPTION": "${ModID}:Brew. Draw a card."
+    "DESCRIPTION": "${ModID}:Brew."
   },
-  "${ModID}:CarefulForaging": {
-    "NAME": "Careful Foraging",
-    "DESCRIPTION": "${ModID}:Forage !M!. Gain !B! Block."
+  "${ModID}:CarefulForage": {
+    "NAME": "Careful Forage",
+    "DESCRIPTION": "Gain !B! Block. ${ModID}:Forage !M!."
+  },
+  "${ModID}:GummyCoating": {
+    "NAME": "Gummy Coating",
+    "DESCRIPTION": "Gain !B! Block. ${ModID}:Brew with a ${ModID}:Gummush."
   }
 }

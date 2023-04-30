@@ -2,8 +2,8 @@ package code.cards.alchemist.basic;
 
 import code.actions.BrewAction;
 import code.cards.AbstractEasyCard;
+import code.util.BrewStand;
 import code.util.Wiz;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -18,12 +18,10 @@ public class CampfireBrewing extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Wiz.atb(new BrewAction());
-        if(this.upgraded) {
-            Wiz.atb(new DrawCardAction(p, 1));
-        }
+        Wiz.atb(new BrewAction(BrewStand.getBrewAmount()));
     }
 
     public void upp() {
+        upgradeBaseCost(0);
     }
 }
