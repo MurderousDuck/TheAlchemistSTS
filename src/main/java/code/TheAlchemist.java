@@ -6,7 +6,6 @@ import basemod.animations.SpriterAnimation;
 import code.cards.alchemist.basic.Defend;
 import code.cards.alchemist.basic.Strike;
 import code.relics.ForagingKit;
-import code.relics.TodoItem;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;

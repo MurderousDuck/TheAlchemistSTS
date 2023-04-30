@@ -12,9 +12,9 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class RetainHandModifier extends StackableModifier {
-    public static String ID = makeID("RetainHandModifier");
-    public static String MOD_DESCRIPTION = " #yRetain your hand this turn.";
-    public static String MULT_MOD_DESCRIPTION = " #yRetain your hand for the next #b{0} turns.";
+    public static final String ID = makeID("RetainHandModifier");
+    public static final String MOD_DESCRIPTION = " #yRetain your hand this turn.";
+    public static final String MULT_MOD_DESCRIPTION = " #yRetain your hand for the next #b{0} turns.";
 
     public RetainHandModifier(int amount) {
         super(ID, amount);

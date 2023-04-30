@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
-import static code.util.BrewStand.updateStackableModifier;
+import static code.util.ModManager.updateStackableModifier;
 import static code.util.Wiz.atb;
 
 public class Shieldlym extends HerbCard {

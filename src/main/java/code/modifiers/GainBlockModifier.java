@@ -11,8 +11,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class GainBlockModifier extends StackableModifier {
-    public static String ID = makeID("GainBlockModifier");
-    public static String MOD_DESCRIPTION = " Gain #b{0} #yBlock.";
+    public static final String ID = makeID("GainBlockModifier");
+    public static final String MOD_DESCRIPTION = " Gain #b{0} #yBlock.";
 
     public GainBlockModifier(int amount) {
         super(ID, amount);

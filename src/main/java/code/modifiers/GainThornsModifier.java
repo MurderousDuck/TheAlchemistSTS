@@ -12,8 +12,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class GainThornsModifier extends StackableModifier{
-    public static String ID = makeID("GainThornsModifier");
-    public static String MOD_DESCRIPTION = " Gain #b{0} #yThorns.";
+    public static final String ID = makeID("GainThornsModifier");
+    public static final String MOD_DESCRIPTION = " Gain #b{0} #yThorns.";
 
     public GainThornsModifier(int amount) {
         super(ID, amount);

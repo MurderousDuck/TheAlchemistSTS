@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
 
+@SuppressWarnings({"FieldMayBeFinal", "CanBeFinal"})
 @AutoAdd.Ignore
 public class EasyModalChoiceCard extends AbstractEasyCard {
 

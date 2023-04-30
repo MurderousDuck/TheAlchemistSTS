@@ -59,9 +59,9 @@ public class ConcoctionBeltPopUp {
 
     private static final float HB_H = 52.0F;
 
-    private Hitbox hbTop = new Hitbox(184.0F, 52.0F);
+    private final Hitbox hbTop = new Hitbox(184.0F, 52.0F);
 
-    private Hitbox hbBot = new Hitbox(184.0F, 52.0F);
+    private final Hitbox hbBot = new Hitbox(184.0F, 52.0F);
 
     private float x;
 
@@ -69,11 +69,9 @@ public class ConcoctionBeltPopUp {
 
     private static final int SEGMENTS = 20;
 
-    private Vector2[] points = new Vector2[20];
+    private final Vector2[] points = new Vector2[20];
 
     private Vector2 controlPoint;
-
-    private float arrowScale;
 
     private float arrowScaleTimer = 0.0F;
 
@@ -330,21 +328,22 @@ public class ConcoctionBeltPopUp {
         float x = InputHelper.mX;
         float y = InputHelper.mY;
         this.controlPoint = new Vector2(this.potion.posX - (x - this.potion.posX) / 4.0F, y + (y - this.potion.posY - 40.0F * Settings.scale) / 2.0F);
+        float arrowScale;
         if (this.hoveredMonster == null) {
-            this.arrowScale = Settings.scale;
+            arrowScale = Settings.scale;
             this.arrowScaleTimer = 0.0F;
             sb.setColor(new Color(1.0F, 1.0F, 1.0F, 1.0F));
         } else {
             this.arrowScaleTimer += Gdx.graphics.getDeltaTime();
             if (this.arrowScaleTimer > 1.0F)
                 this.arrowScaleTimer = 1.0F;
-            this.arrowScale = Interpolation.elasticOut.apply(Settings.scale, Settings.scale * 1.2F, this.arrowScaleTimer);
+            arrowScale = Interpolation.elasticOut.apply(Settings.scale, Settings.scale * 1.2F, this.arrowScaleTimer);
             sb.setColor(new Color(1.0F, 0.2F, 0.3F, 1.0F));
         }
         Vector2 tmp = new Vector2(this.controlPoint.x - x, this.controlPoint.y - y);
         tmp.nor();
         drawCurvedLine(sb, new Vector2(this.potion.posX, this.potion.posY + ((this.controlPoint.y > this.potion.posY) ? 35.0F : -35.0F) * Settings.scale), new Vector2(x, y), this.controlPoint);
-        sb.draw(ImageMaster.TARGET_UI_ARROW, x - 128.0F, y - 128.0F, 128.0F, 128.0F, 256.0F, 256.0F, this.arrowScale, this.arrowScale, tmp.angle() + 90.0F, 0, 0, 256, 256, false, false);
+        sb.draw(ImageMaster.TARGET_UI_ARROW, x - 128.0F, y - 128.0F, 128.0F, 128.0F, 256.0F, 256.0F, arrowScale, arrowScale, tmp.angle() + 90.0F, 0, 0, 256, 256, false, false);
     }
 
     private void drawCurvedLine(SpriteBatch sb, Vector2 start, Vector2 end, Vector2 control) {

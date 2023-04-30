@@ -12,8 +12,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class ApplyWeakModifier extends StackableModifier {
-    public static String ID = makeID("ApplyWeakModifier");
-    public static String MOD_DESCRIPTION = " Apply #b{0} #yWeak.";
+    public static final String ID = makeID("ApplyWeakModifier");
+    public static final String MOD_DESCRIPTION = " Apply #b{0} #yWeak.";
 
     public ApplyWeakModifier(int amount) {
         super(ID, amount);

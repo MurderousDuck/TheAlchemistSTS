@@ -11,8 +11,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class PlayTopCardsModifier extends StackableModifier {
-    public static String ID = makeID("PlayTopCardsModifier");
-    public static String MOD_DESCRIPTION = " Play the top #b{0} cards of your draw pile.";
+    public static final String ID = makeID("PlayTopCardsModifier");
+    public static final String MOD_DESCRIPTION = " Play the top #b{0} cards of your draw pile.";
 
     public PlayTopCardsModifier(int amount) {
         super(ID, amount);

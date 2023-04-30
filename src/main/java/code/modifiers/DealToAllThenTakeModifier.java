@@ -15,8 +15,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class DealToAllThenTakeModifier extends StackableModifier{
-    public static String ID = makeID("DealToAllThenTakeModifier");
-    public static String MOD_DESCRIPTION = " Deal #b{0} damage to ALL enemies. Take #b{1} damage.";
+    public static final String ID = makeID("DealToAllThenTakeModifier");
+    public static final String MOD_DESCRIPTION = " Deal #b{0} damage to ALL enemies. Take #b{1} damage.";
     public int selfDamage;
 
     public DealToAllThenTakeModifier(int amount, int selfDamage) {

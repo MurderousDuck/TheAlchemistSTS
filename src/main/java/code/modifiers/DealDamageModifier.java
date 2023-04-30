@@ -13,8 +13,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class DealDamageModifier extends StackableModifier {
-    public static String ID = makeID("IncreaseBlockModifier");
-    public static String MOD_DESCRIPTION = " Deal #b{0} damage.";
+    public static final String ID = makeID("IncreaseBlockModifier");
+    public static final String MOD_DESCRIPTION = " Deal #b{0} damage.";
 
     public DealDamageModifier(int amount) {
         super(ID, amount);

@@ -17,7 +17,6 @@ import code.util.commands.ResetAndFillPouch;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -49,8 +48,8 @@ public class ModFile implements
         return modID + ":" + idText;
     }
 
-    public static Color characterColor = new Color(112, 44, 176, 1); // This should be changed eventually
-    public static Color herbColor = new Color(23, 133, 26, 1); // This should be changed eventually
+    public static final Color characterColor = new Color(112, 44, 176, 1); // This should be changed eventually
+    public static final Color herbColor = new Color(23, 133, 26, 1); // This should be changed eventually
     public static HerbPouchButton herbPouchButton;
     public static CardGroup herbPouch;
     public static int pouchSize = 10;

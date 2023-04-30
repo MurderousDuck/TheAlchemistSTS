@@ -2,7 +2,6 @@ package code.util.commands;
 
 import basemod.devcommands.ConsoleCommand;
 import code.ModFile;
-import code.util.BrewStand;
 import code.util.PouchManager;
 
 public class ResetAndFillPouch extends ConsoleCommand {

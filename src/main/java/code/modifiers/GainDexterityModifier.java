@@ -12,8 +12,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class GainDexterityModifier extends StackableModifier{
-    public static String ID = makeID("GainDexterityModifier");
-    public static String MOD_DESCRIPTION = " Gain #b{0} #yDexterity.";
+    public static final String ID = makeID("GainDexterityModifier");
+    public static final String MOD_DESCRIPTION = " Gain #b{0} #yDexterity.";
 
     public GainDexterityModifier(int amount) {
         super(ID, amount);

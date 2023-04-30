@@ -12,8 +12,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class ApplyVulnerableModifier extends StackableModifier {
-    public static String ID = makeID("ApplyVulnerabilityModifier");
-    public static String MOD_DESCRIPTION = " Apply #b{0} #yVulnerable.";
+    public static final String ID = makeID("ApplyVulnerabilityModifier");
+    public static final String MOD_DESCRIPTION = " Apply #b{0} #yVulnerable.";
 
     public ApplyVulnerableModifier(int amount) {
         super(ID, amount);

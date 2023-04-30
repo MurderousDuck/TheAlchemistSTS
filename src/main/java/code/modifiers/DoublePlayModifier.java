@@ -12,9 +12,9 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class DoublePlayModifier extends StackableModifier {
-    public static String ID = makeID("DoublePlayModifier");
-    public static String MOD_DESCRIPTION = " Your next card this turn is played twice.";
-    public static String MULT_MOD_DESCRIPTION = " Your next #b{0} cards this turn are played twice.";
+    public static final String ID = makeID("DoublePlayModifier");
+    public static final String MOD_DESCRIPTION = " Your next card this turn is played twice.";
+    public static final String MULT_MOD_DESCRIPTION = " Your next #b{0} cards this turn are played twice.";
 
     public DoublePlayModifier(int amount) {
         super(ID, amount);

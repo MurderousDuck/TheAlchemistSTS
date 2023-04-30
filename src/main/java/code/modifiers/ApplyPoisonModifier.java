@@ -12,8 +12,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class ApplyPoisonModifier extends StackableModifier {
-    public static String ID = makeID("ApplyPoisonModifier");
-    public static String MOD_DESCRIPTION = " Apply #b{0} #yPoison.";
+    public static final String ID = makeID("ApplyPoisonModifier");
+    public static final String MOD_DESCRIPTION = " Apply #b{0} #yPoison.";
 
     public ApplyPoisonModifier(int amount) {
         super(ID, amount);

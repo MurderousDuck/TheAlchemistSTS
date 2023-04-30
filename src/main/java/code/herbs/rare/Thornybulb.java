@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 
 import static code.ModFile.makeID;
-import static code.util.BrewStand.updateStackableModifier;
+import static code.util.ModManager.updateStackableModifier;
 import static code.util.Wiz.atb;
 
 public class Thornybulb extends HerbCard {

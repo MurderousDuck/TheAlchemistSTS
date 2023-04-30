@@ -12,8 +12,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class GainMetallicizeModifier extends StackableModifier{
-    public static String ID = makeID("GainMetallicizeModifier");
-    public static String MOD_DESCRIPTION = " Gain #b{0} #yMetallicize.";
+    public static final String ID = makeID("GainMetallicizeModifier");
+    public static final String MOD_DESCRIPTION = " Gain #b{0} #yMetallicize.";
 
     public GainMetallicizeModifier(int amount) {
         super(ID, amount);

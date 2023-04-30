@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import static code.ModFile.makeRelicPath;
 import static code.ModFile.modID;
 
+@SuppressWarnings("CanBeFinal")
 public abstract class AbstractEasyRelic extends CustomRelic {
     public AbstractCard.CardColor color;
 

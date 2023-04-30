@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.ModFile.makeID;
-import static code.util.BrewStand.updateStackableModifier;
+import static code.util.ModManager.updateStackableModifier;
 import static code.util.Wiz.atb;
 
 public class ForgesEmbrace extends HerbCard {

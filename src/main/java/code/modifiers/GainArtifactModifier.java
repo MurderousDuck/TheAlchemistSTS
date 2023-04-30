@@ -12,8 +12,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class GainArtifactModifier extends StackableModifier{
-    public static String ID = makeID("GainArtifactModifier");
-    public static String MOD_DESCRIPTION = " Gain #b{0} #yArtifact.";
+    public static final String ID = makeID("GainArtifactModifier");
+    public static final String MOD_DESCRIPTION = " Gain #b{0} #yArtifact.";
 
     public GainArtifactModifier(int amount) {
         super(ID, amount);

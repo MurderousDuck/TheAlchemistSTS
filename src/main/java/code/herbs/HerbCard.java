@@ -4,7 +4,6 @@ import code.alchemy.ConcoctionActions;
 import code.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
-import static code.TheAlchemist.Enums.ALCHEMIST_COLOR;
 import static code.TheAlchemist.Enums.HERB_COLOR;
 
 

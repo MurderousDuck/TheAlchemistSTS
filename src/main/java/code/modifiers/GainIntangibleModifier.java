@@ -12,8 +12,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class GainIntangibleModifier extends StackableModifier{
-    public static String ID = makeID("GainIntangibleModifier");
-    public static String MOD_DESCRIPTION = " Gain #b{0} #yIntangible.";
+    public static final String ID = makeID("GainIntangibleModifier");
+    public static final String MOD_DESCRIPTION = " Gain #b{0} #yIntangible.";
 
     public GainIntangibleModifier(int amount) {
         super(ID, amount);

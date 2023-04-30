@@ -10,8 +10,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class GainEnergyModifier extends StackableModifier {
-    public static String ID = makeID("GainEnergyModifier");
-    public static String MOD_DESCRIPTION = " Gain #b{0} #yEnergy.";
+    public static final String ID = makeID("GainEnergyModifier");
+    public static final String MOD_DESCRIPTION = " Gain #b{0} #yEnergy.";
 
     public GainEnergyModifier(int amount) {
         super(ID, amount);

@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static code.ModFile.makeID;
-import static code.util.BrewStand.updateStackableModifier;
+import static code.util.ModManager.updateStackableModifier;
 import static code.util.Wiz.atb;
 
 public class Buffbloom extends HerbCard {

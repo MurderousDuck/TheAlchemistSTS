@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+@SuppressWarnings("CanBeFinal")
 public abstract class AbstractEasyPower extends AbstractPower {
     private static PowerStrings getPowerStrings(String ID)
     {

@@ -24,7 +24,6 @@ import com.megacrit.cardcrawl.potions.PotionSlot;
 import java.util.ArrayList;
 
 public class ConcoctionBelt {
-    private static UIStrings uiStrings = null;
 
     public static String[] TEXT = null;
 
@@ -48,8 +47,6 @@ public class ConcoctionBelt {
 
     private static final float above = 250.0F;
 
-    private int moveState = 0;
-
     private float dx;
 
     private float dy;
@@ -67,7 +64,7 @@ public class ConcoctionBelt {
     public ConcoctionBelt() {
         this.potionUi = new ConcoctionBeltPopUp();
         this.hb = new Hitbox(240.0F * Settings.scale, 60.0F * Settings.scale);
-        uiStrings = CardCrawlGame.languagePack.getUIString(ModFile.makeID("ConcoctionBelt"));
+        UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(ModFile.makeID("ConcoctionBelt"));
         TEXT = uiStrings.TEXT;
         loadImage();
         loadKeySettings();
@@ -127,7 +124,8 @@ public class ConcoctionBelt {
                 keyboard = true;
             }
         }
-        if (this.moveState == 0 && openP != null)
+        int moveState = 0;
+        if (moveState == 0 && openP != null)
             this.potionUi.open(openP.slot, openP, keyboard);
     }
 

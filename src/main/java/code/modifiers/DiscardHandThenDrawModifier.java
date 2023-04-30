@@ -10,8 +10,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class DiscardHandThenDrawModifier extends StackableModifier {
-    public static String ID = makeID("DiscardHandThenDrawModifier");
-    public static String MOD_DESCRIPTION = " Discard your hand then draw #b{0} cards.";
+    public static final String ID = makeID("DiscardHandThenDrawModifier");
+    public static final String MOD_DESCRIPTION = " Discard your hand then draw #b{0} cards.";
 
     public DiscardHandThenDrawModifier(int amount) {
         super(ID, amount);

@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.random.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+@SuppressWarnings({"FieldMayBeFinal", "DuplicatedCode", "CanBeFinal"})
 public class CardArtRoller {
     public static final String partialHueRodrigues =
             "vec3 applyHue(vec3 rgb, float hue)\n" +
@@ -330,6 +331,7 @@ public class CardArtRoller {
         bicolorShader.setUniformf("anchorBB", info.anchor2.b);
     }
 
+    @SuppressWarnings("CanBeFinal")
     public static class ReskinInfo {
         public String origCardID;
         public boolean isBicolor = false;

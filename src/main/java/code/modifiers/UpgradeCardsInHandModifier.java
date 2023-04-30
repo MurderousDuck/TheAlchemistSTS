@@ -10,9 +10,9 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.atb;
 
 public class UpgradeCardsInHandModifier extends StackableModifier {
-    public static String ID = makeID("UpgradeCardsInHandModifier");
-    public static String MOD_DESCRIPTION = " #yUpgrade all cards in your hand for the rest of combat.";
-    public static String MULT_MOD_DESCRIPTION = " #yUpgrade all cards in your hand #b{0} times for the rest of combat.";
+    public static final String ID = makeID("UpgradeCardsInHandModifier");
+    public static final String MOD_DESCRIPTION = " #yUpgrade all cards in your hand for the rest of combat.";
+    public static final String MULT_MOD_DESCRIPTION = " #yUpgrade all cards in your hand #b{0} times for the rest of combat.";
 
     public UpgradeCardsInHandModifier(int amount) {
         super(ID, amount);
